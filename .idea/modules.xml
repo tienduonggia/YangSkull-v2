@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/HiuCinemaParent/HiuCinemaBackEnd/HiuCinemaBackEnd.iml" filepath="$PROJECT_DIR$/HiuCinemaParent/HiuCinemaBackEnd/HiuCinemaBackEnd.iml" />
+      <module fileurl="file://$PROJECT_DIR$/HiuCinemaCommon/HiuCinemaCommon.iml" filepath="$PROJECT_DIR$/HiuCinemaCommon/HiuCinemaCommon.iml" />
+      <module fileurl="file://$PROJECT_DIR$/HiuCinemaParent/HiuCinemaFrontEnd/HiuCinemaFrontEnd.iml" filepath="$PROJECT_DIR$/HiuCinemaParent/HiuCinemaFrontEnd/HiuCinemaFrontEnd.iml" />
+      <module fileurl="file://$PROJECT_DIR$/HiuCinemaParent/HiuCinemaParent.iml" filepath="$PROJECT_DIR$/HiuCinemaParent/HiuCinemaParent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/HiuCinemaProject.iml" filepath="$PROJECT_DIR$/HiuCinemaProject.iml" />
+    </modules>
+  </component>
+</project>
