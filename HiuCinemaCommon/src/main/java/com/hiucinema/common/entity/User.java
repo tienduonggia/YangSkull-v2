@@ -1,20 +1,19 @@
 package com.hiucinema.common.entity;
 
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import java.util.HashSet;
 import java.util.Set;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "users")
+@Getter
+@Setter
+@NoArgsConstructor
 public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -46,9 +45,9 @@ public class User {
 			)
 	private Set<Role> roles = new HashSet<>();
 
-	
-	
-	
+
+
+
 	public User(String email, String password, String firstName, String lastName) {
 		super();
 		this.email = email;
@@ -57,74 +56,8 @@ public class User {
 		this.lastName = lastName;
 	}
 
-	public User() {
-		super();
-	}
 
-	public Integer getId() {
-		return id;
-	}
 
-	public void setId(Integer id) {
-		this.id = id;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
-	}
-
-	public String getFirstName() {
-		return firstName;
-	}
-
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
-
-	public String getLastName() {
-		return lastName;
-	}
-
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
-
-	public String getPhotos() {
-		return photos;
-	}
-
-	public void setPhotos(String photos) {
-		this.photos = photos;
-	}
-
-	public boolean isEnabled() {
-		return enabled;
-	}
-
-	public void setEnabled(boolean enabled) {
-		this.enabled = enabled;
-	}
-
-	public Set<Role> getRoles() {
-		return roles;
-	}
-
-	public void setRoles(Set<Role> roles) {
-		this.roles = roles;
-	}
-	
 	public void addRole(Role role)
 	{
 		this.roles.add(role);
@@ -135,6 +68,12 @@ public class User {
 		return "User [id=" + id + ", email=" + email + ", firstName=" + firstName + ", lastName=" + lastName
 				+ ", roles=" + roles + "]";
 	}
-	
-	
+
+	//lấy đường dẫn theo id người dùng
+	@Transient
+	public String getPhotosImagePath(){
+		if(id == null || photos == null)
+			return "/images/default-user.png";
+		return "/user-photo/" + this.id + "/" + this.photos;
+	}
 }
