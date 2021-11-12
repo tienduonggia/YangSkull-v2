@@ -18,13 +18,14 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	public PasswordEncoder PasswordEncoder() {
 		return new BCryptPasswordEncoder();
 	}
-	
-	
-	
+
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		//Cho tất cả các quyền đều đc zô, => bỏ cái trang login mặc định của spring security
-		http.authorizeRequests().anyRequest().permitAll();
+		http.
+				authorizeRequests().
+				anyRequest().
+				permitAll();
 		http.csrf().disable();
 	}
 	

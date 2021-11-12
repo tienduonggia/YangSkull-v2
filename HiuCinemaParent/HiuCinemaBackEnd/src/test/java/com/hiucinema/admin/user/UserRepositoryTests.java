@@ -1,18 +1,26 @@
 package com.hiucinema.admin.user;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.InstanceOfAssertFactories.LIST;
+
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase.Replace;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.test.annotation.Rollback;
 
 import com.hiucinema.common.entity.Role;
 import com.hiucinema.common.entity.User;
 
-@DataJpaTest
+import java.util.List;
+
+//để kh hiện câu SQL khi chạy test
+@DataJpaTest(showSql = false)
 @AutoConfigureTestDatabase(replace = Replace.NONE)
 @Rollback(false)
 public class UserRepositoryTests {
@@ -52,7 +60,7 @@ public class UserRepositoryTests {
 	public void testQueryAllUsers()
 	{
 		Iterable<User> listUsers = repo.findAll();
-		listUsers.forEach(user -> System.out.println(user));
+		listUsers.forEach(System.out::println);
 		assertThat(listUsers).isNotNull();
 	}
 	
@@ -100,7 +108,46 @@ public class UserRepositoryTests {
 				
 		System.out.println(user); //null
 		//assertThat(user).isNull();
+	}
+	
+	@Test
+	public void countByID()
+	{
+		int id = 122;
+		Long countByID = repo.countById(id);
 		
+		System.out.println(countByID);
+	}
+
+	@Test
+	public void testDisableUser(){
+		int id = 8;
+		repo.updateEnableStatus(id,false);
+	}
+
+	@Test
+	public void testEnableUser(){
+		int id = 8;
+		 repo.updateEnableStatus(id,true);
+	}
+
+	//Test phân trang
+	//Logic mình chỉ cần khai báo mỗi trang cần hiển thị bao nhiu
+	@Test
+	public void testListFirstPage()
+	{
+		int pageNumber = 2;
+		int pageSize = 3;
+
+		Pageable pageable = PageRequest.of(pageNumber,pageSize);
+		Page<User> userPage = repo.findAll(pageable);
+
+		List<User> userList = userPage.getContent();
+
+		userList.forEach(System.out::println);
+
+		assertThat(userList.size()).isEqualTo(pageSize);
+
 	}
 	
 }

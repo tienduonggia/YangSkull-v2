@@ -101,6 +101,8 @@
 		</dependency>
 
 
+
+
 		<dependency>
 			<groupId>com.hiucinema</groupId>
 			<artifactId>HiuCinemaCommon</artifactId>

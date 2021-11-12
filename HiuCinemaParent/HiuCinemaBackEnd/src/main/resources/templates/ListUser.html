@@ -1,130 +1,198 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
-	xmlns:layout="http://www.w3.org/1999/xhtml"
-	layout:decorate="~{fragments/MainLayout}">
+      xmlns:layout="http://www.w3.org/1999/xhtml"
+      layout:decorate="~{fragments/MainLayout}">
 <head>
-<meta charset="UTF-8">
-<title>Hiu Cinema Admin Controller</title>
+    <meta charset="UTF-8">
+    <title>Hiu Cinema Admin Controller</title>
 </head>
 <body>
-	<div layout:fragment="content">
+<div layout:fragment="content">
 
-		 <div class="grid_3 grid_5 w3ls" th:if="${message != null}" style="margin-top: 15px; margin-bottom: -10px !important;">
-					<div class="alert alert-success" role="alert">
-						<strong>Well done!</strong> [[${message}]]
-					</div>
-				</div>
-
-
-
-		<div class="table-agile-info">
-			<div class="panel panel-default">
-				<div class="panel-heading">Manage Users</div>
-
-
-				<!-- <div class="grid_3 grid_5 w3ls" th:if="${message != null}">
-					<div class="alert alert-success" role="alert">
-						<strong>Well done!</strong> [[${message}]]
-					</div>
-				</div> -->
+    <div class="grid_3 grid_5 w3ls" th:if="${message != null}"
+         style="margin-top: 15px; margin-bottom: -10px !important;">
+        <div class="alert alert-success" role="alert">
+            <strong>Well done!</strong> [[${message}]]
+        </div>
+    </div>
+    <div class="grid_3 grid_5 w3ls" th:if="${error != null}"
+         style="margin-top: 15px; margin-bottom: -10px !important;">
+        <div class="alert alert-danger" role="alert">[[${error}]]</div>
+    </div>
 
 
+    <div class="table-agile-info">
+        <div class="panel panel-default">
+            <div class="panel-heading">Manage Users</div>
 
 
+            <!-- <div class="grid_3 grid_5 w3ls" th:if="${message != null}">
+                <div class="alert alert-success" role="alert">
+                    <strong>Well done!</strong> [[${message}]]
+                </div>
+            </div> -->
 
-				<div class="row w3-res-tb">
-					<div class="col-sm-4 m-b-xs">
+
+            <div class="row w3-res-tb">
+                <div class="col-sm-4 m-b-xs">
 
 
-						<select class="input-sm form-control w-sm inline v-middle">
-							<option value="0">Bulk action</option>
-							<option value="1">Delete selected</option>
-							<option value="2">Bulk edit</option>
-							<option value="3">Export</option>
-						</select>
-						<button class="btn btn-sm btn-default">Apply</button>
-					</div>
-					<div class="col-sm-4">
-						<div class="input-group">
-							<input type="text" class="input-sm form-control"
-								placeholder="Search"> <span class="input-group-btn">
+                    <select class="input-sm form-control w-sm inline v-middle">
+                        <option value="0">Bulk action</option>
+                        <option value="1">Delete selected</option>
+                        <option value="2">Bulk edit</option>
+                        <option value="3">Export</option>
+                    </select>
+                    <button class="btn btn-sm btn-default">Apply</button>
+                </div>
+                <div class="col-sm-4">
+                    <div class="input-group">
+                        <input type="text" class="input-sm form-control"
+                               placeholder="Search"> <span class="input-group-btn">
 								<button class="btn btn-sm btn-default" type="button">Go!</button>
 							</span>
 
 
-						</div>
-					</div>
-					<div class="col-sm-4">
-						<div style="margin-left: 60%">
-							<a th:href="@{/users/new}"><i
-								class="fa fa-plus text-success text-active"></i> Create New User</a>
-						</div>
-					</div>
-				</div>
-				<div class="table-responsive">
-					<table class="table table-striped b-t b-light">
-						<thead>
-							<tr>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div style="margin-left: 60%">
+                        <a th:href="@{/users/new}"><i
+                                class="fa fa-plus text-success text-active"></i> Create New User</a>
+                    </div>
+                </div>
+            </div>
+            <div class="table-responsive">
+                <table class="table table-striped b-t b-light">
+                    <thead>
+                    <tr>
+                        <th>User ID</th>
+                        <th>Photos</th>
+                        <th>Email</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Roles</th>
+                        <th>Enabled</th>
+                        <th style="width: 30px;"></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="user : ${listUsers}">
 
-								<th>User ID</th>
-								<th>Photos</th>
-								<th>Email</th>
-								<th>First Name</th>
-								<th>Last Name</th>
-								<th>Roles</th>
-								<th>Enabled</th>
-								<th style="width: 30px;"></th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr th:each="user : ${listUsers}">
+                        <td>[[${user.id}]]</td>
+                        <td>
+                            <img  th:src="@{${user.getPhotosImagePath}}"
+                                 width="150px"
+                                 height="150px"/>
+                        </td>
+                        <td><span class="text-ellipsis">[[${user.email}]]</span></td>
+                        <td><span class="text-ellipsis">[[${user.firstName}]]</span></td>
+                        <td><span class="text-ellipsis">[[${user.lastName}]]</span></td>
+                        <td><span class="text-ellipsis">[[${user.roles}]]</span></td>
+                        <td>
+                            <!-- <span class="text-ellipsis">[[${user.enabled}]]</span> -->
+                            <a style="color: green" th:if="${user.enabled == true}"
+                               class="fa fa-check-circle fa-lg "
+                               title="Disable this user"
+                               th:href="@{'/users/' + ${user.id} + '/enabled/false'}"></a>
+                            <a
+                                style="color: grey" th:if="${user.enabled == false}"
+                                class="fa fa-circle fa-lg "
+                                title="Enable this user"
+                                th:href="@{'/users/' + ${user.id} + '/enabled/true'}"></a>
 
-								<td>[[${user.id}]]</td>
-								<td><span class="text-ellipsis">[[${user.photos}]]</span></td>
-								<td><span class="text-ellipsis">[[${user.email}]]</span></td>
-								<td><span class="text-ellipsis">[[${user.firstName}]]</span></td>
-								<td><span class="text-ellipsis">[[${user.lastName}]]</span></td>
-								<td><span class="text-ellipsis">[[${user.roles}]]</span></td>
-								<td>
-									<!-- <span class="text-ellipsis">[[${user.enabled}]]</span> -->
-									<a style="color:green" th:if="${user.enabled == true}" class="fa fa-check-circle fa-lg " href="#" />
-									<a style="color:grey" th:if="${user.enabled == false}" class="fa fa-check-circle fa-lg " href="#" />
-								
-								
-								</td>
-								<td><a th:href="@{'/users/edit/' + ${user.id}}" title="Edit this user" class="active" ui-toggle-class=""> <i
-										class="fa  fa-edit text-success text-active"></i>
 
-								</a> <a href="3" class="active" ui-toggle-class=""> <i
-										class="fa fa-times text-danger text"></i>
-								</a></td>
-							</tr>
+                        </td>
+                        <td><a th:href="@{'/users/edit/' + ${user.id}}"
+                               title="Edit this user" class="active" ui-toggle-class=""> <i
+                                class="fa  fa-edit text-success text-active"></i>
 
-						</tbody>
-					</table>
-				</div>
-				<footer class="panel-footer">
-					<div class="row">
+                        </a> <a th:href="@{'/users/delete/' + ${user.id}}"
+                                title="Delete this user" class="active link-delete"
+                                ui-toggle-class=""
+                                th:userID="${user.id}">
+                            <i class="fa fa-times text-danger text"></i>
+                        </a></td>
+                    </tr>
 
-						<div class="col-sm-5 text-center">
-							<small class="text-muted inline m-t-sm m-b-sm">showing
-								20-30 of 1000 items</small>
-						</div>
-						<div class="col-sm-7 text-right text-center-xs">
-							<ul class="pagination pagination-sm m-t-none m-b-none">
-								<li><a href=""><i class="fa fa-chevron-left"></i></a></li>
-								<li><a href="">1</a></li>
-								<li><a href="">2</a></li>
-								<li><a href="">3</a></li>
-								<li><a href="">4</a></li>
-								<li><a href=""><i class="fa fa-chevron-right"></i></a></li>
-							</ul>
-						</div>
-					</div>
-				</footer>
-			</div>
-		</div>
+                    </tbody>
+                </table>
+            </div>
+            <footer class="panel-footer">
 
-	</div>
+
+                <div class="row" >
+
+                    <div class="col-sm-5 text-center">
+                        <small class="text-muted inline m-t-sm m-b-sm" th:if="${totalItems > 0}">Showing
+                            [[${startCount}]] to [[${endCount}]] of [[${totalItems}]] users</small>
+
+                        <small class="text-muted inline m-t-sm m-b-sm" th:unless="${totalItems > 0}">No users to show</small>
+                    </div>
+                    <div class="col-sm-7 text-right text-center-xs">
+                        <ul class="pagination pagination-sm m-t-none m-b-none">
+                            <li th:class="${currentPage < 1 ? '' : 'page-item disabled'}">
+                                <a th:href="@{'/users/page/1'}">First</a>
+                            </li>
+                            <li th:class="${currentPage < 1 ? '' : 'page-item disabled'}">
+                                <a th:href="@{'/users/page/' + ${currentPage -1 }}"><i class="fa fa-chevron-left"></i></a>
+                            </li>
+
+                                <li th:each="i : ${#numbers.sequence(1,totalPage)}">
+                                    <a th:style="${currentPage != i ? 'background: white' : 'background:pink'}"
+                                       th:href="@{'/users/page/' + ${i}}">[[${i}]]</a>
+                                </li>
+                            <li th:class="${currentPage > 1 ? 'page-item disabled' : ''}">
+                                <a th:href="@{'/users/page/' + ${currentPage + 1}}"><i class="fa fa-chevron-right"></i></a>
+                            </li>
+                            <li th:class="${currentPage > 1 ? 'page-item disabled' : ''}">
+                                <a th:href="@{'/users/page/' + ${totalPage}}">Last</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <div class="modal fade text-center" id="comfirmModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Delete Confirmation</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <div class="modal-body">
+                    <span id="confirmText"></span>
+                </div>
+
+                <div class="modal-footer">
+                    <a class="btn btn-success" href="" id="yesButton">Yes</a>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">No</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".link-delete").on("click", function (e) {
+                e.preventDefault();
+                //alert($(this).attr("href"));
+
+                link = $(this);
+                userID = link.attr("userID");
+                $("#yesButton").attr("href", link.attr("href"));
+                $("#confirmText").text("Are you sure you want delete this user ID " + userID + " ?");
+                $("#comfirmModal").modal();
+            });
+
+        });
+    </script>
+
+
+</div>
 </body>
 </html>
