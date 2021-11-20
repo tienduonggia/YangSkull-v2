@@ -1,5 +1,7 @@
 package com.hiucinema.admin.user;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
@@ -24,6 +26,18 @@ public interface UserRepository extends PagingAndSortingRepository<User, Integer
 	public User getUserByEmail(@Param("email") String email);
 	
 	public Long countById(Integer id);
+
+
+	//này chỉ sử dụng cho 1 trường hợp thôi, đặt 1 trường hợp khác
+	//Bạn có ng dùng có họ và tên , 2 cột riêng => user tìm cả họ và tên theo cách này sẽ kh đc
+//	@Query("SELECT u FROM User u WHERE u.firstName LIKE %?1% " +
+//										"OR u.lastName LIKE %?1% " +
+//										"OR u.email LIKE %?1%")
+//	public Page<User> findAll(String keyword, Pageable pageable);
+
+	//Mình sẽ concat để nối chuỗi lại
+	@Query("SELECT u FROM User u WHERE CONCAT(u.id, ' ',u.email, ' ',u.firstName, ' ',u.lastName) LIKE %?1% ")
+	public Page<User> findAll(String keyword, Pageable pageable);
 
 	@Query("UPDATE User u SET u.enabled = ?2 WHERE u.id =?1")
 	@Modifying

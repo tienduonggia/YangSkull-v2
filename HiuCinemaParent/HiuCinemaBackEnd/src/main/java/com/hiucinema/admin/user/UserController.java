@@ -2,6 +2,7 @@ package com.hiucinema.admin.user;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.http.HttpResponse;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
@@ -11,6 +12,7 @@ import org.apache.tomcat.util.descriptor.web.MultipartDef;
 import org.apache.tomcat.util.http.fileupload.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
@@ -21,6 +23,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.hiucinema.common.entity.Role;
 import com.hiucinema.common.entity.User;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.websocket.server.PathParam;
 
 
@@ -40,21 +43,24 @@ public class UserController {
 
     @GetMapping("")
     public String listAll(Model model) {
-        return listByPage(1, model);
+        return listByPage(1, model,"id","asc",null);
     }
 
     @GetMapping("/page/{pageNumber}")
-    public String listByPage(@PathVariable("pageNumber") int pageNumber, Model model) {
+    public String listByPage(@PathVariable("pageNumber") int pageNumber, Model model,
+                             @Param("sortField") String sortField ,
+                             @Param("sortDir") String sortDir,
+                            @Param("keyword") String keyword) {
         Page<User> userPage = null;
        try{
-           userPage = userService.listByPage(pageNumber);
+           userPage = userService.listByPage(pageNumber,sortField,sortDir,keyword);
            if(pageNumber > userPage.getTotalPages()){
-               userPage = userService.listByPage(userPage.getTotalPages());
+               userPage = userService.listByPage(userPage.getTotalPages(),sortField,sortDir,keyword);
            }
        }catch (IllegalArgumentException ex)
        {
                pageNumber = 1;
-               userPage = userService.listByPage(pageNumber);
+               userPage = userService.listByPage(pageNumber,sortField,sortDir,keyword);
        }
 
 
@@ -65,13 +71,18 @@ public class UserController {
         if (endCount > userPage.getTotalElements()) {
             endCount = userPage.getTotalElements();
         }
+        String reverseSortDir = sortDir.equals("asc") ? "desc" : "asc";
 
+        model.addAttribute("sortField", sortField);
+        model.addAttribute("sortDir", sortDir);
         model.addAttribute("totalPage", userPage.getTotalPages());
         model.addAttribute("currentPage", pageNumber);
         model.addAttribute("startCount", startCount);
         model.addAttribute("endCount", endCount);
         model.addAttribute("totalItems", userPage.getTotalElements());
         model.addAttribute("listUsers", listUser);
+        model.addAttribute("reverseSortDir", reverseSortDir);
+        model.addAttribute("keyword", keyword);
         return "ListUser";
     }
 
@@ -144,7 +155,10 @@ public class UserController {
 
         //userService.save(user);
         redicAttributes.addFlashAttribute("message", "The user has been saved successfully !");
-        return "redirect:/users";
+
+        String firstPartOfEmail = user.getEmail().split("@")[0];
+        return "redirect:/users/page/1?sortField=id&sortDir=asc&keyword=" + firstPartOfEmail;
+       // return "redirect:/users";
     }
 
     @GetMapping("/{id}/enabled/{status}")
@@ -156,6 +170,15 @@ public class UserController {
         String message = "The user ID " + id + " has been " + enable;
         redicAttributes.addFlashAttribute("message", message);
         return "redirect:/users";
+    }
+
+    /*Export to excel*/
+    @GetMapping("/export/excel")
+    public void exportToExcel(HttpServletResponse response) throws IOException {
+        List<User> listUser = userService.listAll();
+
+        UserExelExporter exporter = new UserExelExporter();
+        exporter.export(listUser,response);
     }
 
 }

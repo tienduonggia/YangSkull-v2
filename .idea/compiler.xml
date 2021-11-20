@@ -25,7 +25,7 @@
       <module name="HiuCinemaBackEnd" options="-parameters" />
       <module name="HiuCinemaCommon" options="-parameters" />
       <module name="HiuCinemaFrontEnd" options="-parameters" />
-      <module name="HiuCinemaParent" options="-parameters" />
+      <module name="HiuCinemaParent" options="" />
     </option>
   </component>
 </project>

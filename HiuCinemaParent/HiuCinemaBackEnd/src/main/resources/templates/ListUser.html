@@ -35,25 +35,20 @@
 
             <div class="row w3-res-tb">
                 <div class="col-sm-4 m-b-xs">
-
-
-                    <select class="input-sm form-control w-sm inline v-middle">
-                        <option value="0">Bulk action</option>
-                        <option value="1">Delete selected</option>
-                        <option value="2">Bulk edit</option>
-                        <option value="3">Export</option>
-                    </select>
-                    <button class="btn btn-sm btn-default">Apply</button>
+                    <a th:href="@{/users/export/excel}" class="btn btn-sm btn-success">Excel <i class="fa fa-download"></i></a>
+                    <a class="btn btn-sm btn-danger">PDF <i class="fa fa-download"></i></a>
                 </div>
                 <div class="col-sm-4">
-                    <div class="input-group">
-                        <input type="text" class="input-sm form-control"
-                               placeholder="Search"> <span class="input-group-btn">
-								<button class="btn btn-sm btn-default" type="button">Go!</button>
-							</span>
+                        <form th:action="@{/users/page/1}" class="input-group">
+                            <input type="hidden"  th:value="${sortField}" name="sortField"/>
+                            <input type="hidden"  th:value="${sortDir}" name="sortDir"/>
+                            <input type="search" class="input-sm form-control" placeholder="Search" name="keyword" required/>
 
-
-                    </div>
+                            <span class="input-group-btn">
+								<button class="btn btn-sm btn-default" type="submit">Go!</button>
+                        </form>
+                             <button class="btn btn-sm btn-default" onclick="clearFilter()">Clear</button>
+                            </span>
                 </div>
                 <div class="col-sm-4">
                     <div style="margin-left: 60%">
@@ -66,13 +61,23 @@
                 <table class="table table-striped b-t b-light">
                     <thead>
                     <tr>
-                        <th>User ID</th>
-                        <th>Photos</th>
-                        <th>Email</th>
-                        <th>First Name</th>
-                        <th>Last Name</th>
-                        <th>Roles</th>
-                        <th>Enabled</th>
+                        <th>
+                                              <a th:if="${sortField != 'id'}" style="color:black"
+                                                 th:href="@{'/users/page/' + ${currentPage} + '?sortField=id&sortDir=' + ${sortDir} + ${keyword != null ? '&keyword=' + keyword : ''}}">
+                                                  User ID</a>
+                                              <a th:if="${sortField == 'id'}" style="color:black"
+                                                 th:href="@{'/users/page/' + ${currentPage} + '?sortField=id&sortDir=' + ${reverseSortDir}+ ${keyword != null ? '&keyword=' + keyword : ''}}">
+                                                  User ID</a>
+                                              <span th:if="${sortField == 'id'}"
+                                                    th:class="${sortDir == 'asc' ? 'fa fa-sort-up' : 'fa fa-sort-down'}" style="color:black"></span>
+                                          </th>
+                       <!-- <th th:replace="fragments :: column_link('id','User ID')"/>-->
+                        <th style="color:black">Photos</th>
+                        <th th:replace="fragments :: column_link('email','Email')"/>
+                        <th th:replace="fragments :: column_link('firstName','First Name')"/>
+                        <th th:replace="fragments :: column_link('lastName','Last Name')"/>
+                        <th style="color:black">Roles</th>
+                        <th style="color:black">Enabled</th>
                         <th style="width: 30px;"></th>
                     </tr>
                     </thead>
@@ -119,8 +124,6 @@
                 </table>
             </div>
             <footer class="panel-footer">
-
-
                 <div class="row" >
 
                     <div class="col-sm-5 text-center">
@@ -129,24 +132,29 @@
 
                         <small class="text-muted inline m-t-sm m-b-sm" th:unless="${totalItems > 0}">No users to show</small>
                     </div>
-                    <div class="col-sm-7 text-right text-center-xs">
+
+                    <div class="col-sm-7 text-right text-center-xs" th:if="${totalItems > 0} ">
                         <ul class="pagination pagination-sm m-t-none m-b-none">
-                            <li th:class="${currentPage < 1 ? '' : 'page-item disabled'}">
-                                <a th:href="@{'/users/page/1'}">First</a>
+                            <li th:class="${currentPage > 1 ? '' : 'page-item disabled'}">
+                                <a th:replace="fragments :: page_link(1, 'First','')"/>
+                              <!--  <a th:href="@{'/users/page/1?sortField=' + ${sortField} +'&sortDir=' + ${sortDir}}">First</a>-->
                             </li>
-                            <li th:class="${currentPage < 1 ? '' : 'page-item disabled'}">
-                                <a th:href="@{'/users/page/' + ${currentPage -1 }}"><i class="fa fa-chevron-left"></i></a>
+                            <li th:class="${currentPage > 1 ? '' : 'page-item disabled'}">
+                                <!--<a th:href="@{'/users/page/' + ${currentPage - 1}+ '?sortField='+ ${sortField} +'&sortDir=' + ${sortDir}}"><i class="fa fa-chevron-left"></i></a>-->
+                                <a th:replace="fragments :: page_link(${currentPage - 1}, '','fa fa-chevron-left')"/>
                             </li>
 
                                 <li th:each="i : ${#numbers.sequence(1,totalPage)}">
                                     <a th:style="${currentPage != i ? 'background: white' : 'background:pink'}"
-                                       th:href="@{'/users/page/' + ${i}}">[[${i}]]</a>
+                                       th:href="@{'/users/page/' + ${i} + '?sortField='+ ${sortField} +'&sortDir=' + ${sortDir}}">[[${i}]]</a>
                                 </li>
+
                             <li th:class="${currentPage > 1 ? 'page-item disabled' : ''}">
-                                <a th:href="@{'/users/page/' + ${currentPage + 1}}"><i class="fa fa-chevron-right"></i></a>
+
+                                <a th:replace="fragments :: page_link(${currentPage + 1}, '','fa fa-chevron-right')"/>
                             </li>
                             <li th:class="${currentPage > 1 ? 'page-item disabled' : ''}">
-                                <a th:href="@{'/users/page/' + ${totalPage}}">Last</a>
+                                <a th:replace="fragments :: page_link(${totalPage}, 'Last','')"/>
                             </li>
                         </ul>
                     </div>
@@ -190,6 +198,13 @@
             });
 
         });
+
+        function clearFilter()
+        {
+            window.location = "[[@{/users}]]"
+        }
+
+
     </script>
 
 

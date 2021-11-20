@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+<!--<th>
+                      <a th:if="${sortField != 'id'}" style="color:black"
+                         th:href="@{'/users/page/' + ${currentPage} + '?sortField=id&sortDir=' + ${sortDir} + ${keyword != null ? '&keyword=' + keyword : ''}}">
+                          User ID</a>
+                      <a th:if="${sortField == 'id'}" style="color:black"
+                         th:href="@{'/users/page/' + ${currentPage} + '?sortField=id&sortDir=' + ${reverseSortDir}+ ${keyword != null ? '&keyword=' + keyword : ''}}">
+                          User ID</a>
+                      <span th:if="${sortField == 'id'}"
+                            th:class="${sortDir == 'asc' ? 'fa fa-sort-up' : 'fa fa-sort-down'}" style="color:black"></span>
+                  </th>-->
+
+<!--//đây tựa như component , 1  cái hàm trong java-->
+<th th:fragment="column_link(fieldName,columnLabel)">
+    <a style="color:black"
+       th:href="@{'/users/page/' + ${currentPage} + '?sortField=' + ${fieldName} +'&sortDir=' + ${sortField == fieldName ? reverseSortDir : sortDir} + ${keyword != null ? '&keyword=' + keyword : ''}}">
+        [[${columnLabel}]]
+    </a>
+    <span th:if="${sortField == fieldName}"
+          th:class="${sortDir == 'asc' ? 'fa fa-sort-up' : 'fa fa-sort-down'}" style="color:black"></span>
+</th>
+
+
+<a th:fragment="page_link(pageNum, label, className)"
+   th:href="@{'/users/page/' + ${pageNum} + '?sortField='+ ${sortField} +'&sortDir=' + ${sortDir} + ${keyword != null ? '&keyword=' + keyword : ''}}"
+>
+    <i th:if="${className != null}"
+        th:class="${className}"></i>
+    [[${label}]]
+</a>
+
+
+</body>
+</html>
