@@ -37,7 +37,7 @@ public class User {
 	private boolean enabled;
 	
 	//Vì đây là quan hệ n - n , 1 user sẽ có nhiều role => sẽ có 1 list Role
-	@ManyToMany
+	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(
 				name="users_roles",
 				joinColumns = @JoinColumn(name="user_id"),
