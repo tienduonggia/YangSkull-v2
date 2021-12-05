@@ -72,6 +72,12 @@
 		</dependency>
 
 
+		<!--this dependency help we authen or something security in html (thymlef)"-->
+		<dependency>
+			<groupId>org.thymeleaf.extras</groupId>
+			<artifactId>thymeleaf-extras-springsecurity5</artifactId>
+		</dependency>
+
 		<!--Layout thymeleaf -->
 		<dependency>
 			<groupId>nz.net.ultraq.thymeleaf</groupId>

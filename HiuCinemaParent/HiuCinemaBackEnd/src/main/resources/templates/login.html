@@ -19,6 +19,11 @@
             [[${session.SPRING_SECURITY_LAST_EXCEPTION.message}]]
         </p>
     </div>
+    <div th:if="${param.logout}">
+        <p class="text-warning">
+            You have been logout successfully
+        </p>
+    </div>
 
     <form th:action="@{/login}" method="post" style="max-width: 350px; margin: 0 auto">
         <div class="border border-secondary rounded p-3">

@@ -54,9 +54,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .formLogin()
                     .loginPage("/login")
                     .usernameParameter("email")
+                    .permitAll()
+                .and()
+                .logout()
                     .permitAll();
 
-        http.csrf().disable();
+     //   http.csrf().disable();
     }
 
     //Because on there we config that any request need authenticated => so here we need config expect path URL images
