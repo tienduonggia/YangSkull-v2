@@ -6,7 +6,11 @@
       <module fileurl="file://$PROJECT_DIR$/HiuCinemaCommon/HiuCinemaCommon.iml" filepath="$PROJECT_DIR$/HiuCinemaCommon/HiuCinemaCommon.iml" />
       <module fileurl="file://$PROJECT_DIR$/HiuCinemaParent/HiuCinemaFrontEnd/HiuCinemaFrontEnd.iml" filepath="$PROJECT_DIR$/HiuCinemaParent/HiuCinemaFrontEnd/HiuCinemaFrontEnd.iml" />
       <module fileurl="file://$PROJECT_DIR$/HiuCinemaParent/HiuCinemaParent.iml" filepath="$PROJECT_DIR$/HiuCinemaParent/HiuCinemaParent.iml" />
-      <module fileurl="file://$PROJECT_DIR$/HiuCinemaProject.iml" filepath="$PROJECT_DIR$/HiuCinemaProject.iml" />
+      <module fileurl="file://$PROJECT_DIR$/YangSkullParent/YangSkullBackEnd/YangSkullBackEnd.iml" filepath="$PROJECT_DIR$/YangSkullParent/YangSkullBackEnd/YangSkullBackEnd.iml" />
+      <module fileurl="file://$PROJECT_DIR$/YangSkullCommon/YangSkullCommon.iml" filepath="$PROJECT_DIR$/YangSkullCommon/YangSkullCommon.iml" />
+      <module fileurl="file://$PROJECT_DIR$/YangSkullParent/YangSkullFrontEnd/YangSkullFrontEnd.iml" filepath="$PROJECT_DIR$/YangSkullParent/YangSkullFrontEnd/YangSkullFrontEnd.iml" />
+      <module fileurl="file://$PROJECT_DIR$/YangSkullParent/YangSkullParent.iml" filepath="$PROJECT_DIR$/YangSkullParent/YangSkullParent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/YangSkullProject.iml" filepath="$PROJECT_DIR$/YangSkullProject.iml" />
     </modules>
   </component>
 </project>

@@ -7,9 +7,12 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="HiuCinemaBackEnd" />
+        <module name="YangSkullBackEnd" />
         <module name="HiuCinemaCommon" />
         <module name="HiuCinemaFrontEnd" />
+        <module name="HiuCinemaBackEnd" />
+        <module name="YangSkullCommon" />
+        <module name="YangSkullFrontEnd" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -17,7 +20,11 @@
       <module name="HiuCinemaCommon" target="15" />
       <module name="HiuCinemaFrontEnd" target="15" />
       <module name="HiuCinemaParent" target="15" />
-      <module name="HiuCinemaProject" target="1.5" />
+      <module name="YangSkullBackEnd" target="15" />
+      <module name="YangSkullCommon" target="15" />
+      <module name="YangSkullFrontEnd" target="15" />
+      <module name="YangSkullParent" target="15" />
+      <module name="YangSkullProject" target="1.5" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
@@ -26,6 +33,10 @@
       <module name="HiuCinemaCommon" options="-parameters" />
       <module name="HiuCinemaFrontEnd" options="-parameters" />
       <module name="HiuCinemaParent" options="-parameters" />
+      <module name="YangSkullBackEnd" options="-parameters" />
+      <module name="YangSkullCommon" options="-parameters" />
+      <module name="YangSkullFrontEnd" options="-parameters" />
+      <module name="YangSkullParent" options="-parameters" />
     </option>
   </component>
 </project>
