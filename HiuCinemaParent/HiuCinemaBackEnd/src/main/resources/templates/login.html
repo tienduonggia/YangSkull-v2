@@ -7,11 +7,11 @@
 
     <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
 </head>
-<body>
+<body style="background-color:black">
 
-<div class="container-fluid text-center">
+<div class="container-fluid text-center" style="margin-top:50px">
     <div>
-        <img th:src="@{/images/logoDemo.png}"/>
+        <img style="margin-right:30px" th:src="@{/images/logoDemo.png}"/>
     </div>
 
     <div th:if="${param.error}">
@@ -27,12 +27,15 @@
 
     <form th:action="@{/login}" method="post" style="max-width: 350px; margin: 0 auto">
         <div class="border border-secondary rounded p-3">
-            <p>Login to YangSkull Control Panel</p>
+            <p style="color:navajowhite">Login to YangSkull Control Panel</p>
             <p>
                 <input type="email" name="email" class="form-control" placeholder="Enter email" required/>
             </p>
             <p>
                 <input type="password" name="password" class="form-control" placeholder="Enter password" required/>
+            </p>
+            <p style="color:navajowhite">
+                <input type="checkbox" name="remember-be"/> Remember Me
             </p>
             <p>
                 <input type="submit" value="Login" class="btn btn-primary">
@@ -40,8 +43,8 @@
         </div>
     </form>
 
-    <div class="footer">
-        <p>YangSkull Controler Panel - Copyright &copy; Since 2021</p>
+    <div class="footer"  >
+        <p style="color:navajowhite"> YangSkull Controler Panel - Copyright &copy; Since 2021</p>
     </div>
 
 </div>

@@ -57,7 +57,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                     .permitAll()
                 .and()
                 .logout()
-                    .permitAll();
+                    .permitAll()
+                .and()
+                    .rememberMe()
+                    .rememberMeParameter("remember-be")
+                    .key("DuongGiaTien031020***") // ma hoa cookie ghi tren browser mac dinh se tu dong tao
+                    .tokenValiditySeconds(7 * 24 * 60 * 60);
 
      //   http.csrf().disable();
     }
