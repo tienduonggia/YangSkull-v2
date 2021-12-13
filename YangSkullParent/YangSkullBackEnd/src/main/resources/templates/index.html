@@ -1,12 +1,18 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
 		xmlns:layout="http://www.w3.org/1999/xhtml"
-		layout:decorate="~{fragments/MainLayout}">
+		layout:decorate="~{fragments/MainLayout}"
+	  xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
 <meta charset="UTF-8">
 <title>Hiu Cinema Admin Controller</title>
 </head>
 <body>
-	<h3 layout:fragment="content">Hiu Cinema Admin Controller</h3>
+	<div layout:fragment="content">
+        <div class="text-center">Hiu Cinema Admin Controller</div>
+		<h3 sec:authentication="principal.fullname"></h3>
+		<h3 sec:authentication="principal.authorities"></h3>
+
+    </div>
 </body>
 </html>

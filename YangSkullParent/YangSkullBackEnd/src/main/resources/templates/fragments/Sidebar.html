@@ -1,4 +1,5 @@
-<aside xmlns:th="http://www.w3.org/1999/xhtml" th:fragment="sidebar">
+<aside xmlns:th="http://www.w3.org/1999/xhtml" th:fragment="sidebar"
+       xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
     <div id="sidebar" class="nav-collapse">
         <!-- sidebar menu start-->
         <div class="leftside-navigation">
@@ -10,27 +11,25 @@
                     </a>
                 </li>
                 
-                <li class="sub-menu">
+                <li class="sub-menu" sec:authorize="hasAuthority('Admin')">
                     <a href="javascript:;">
                         <i class="fa fa-book"></i>
                         <span>Users</span>
                     </a>
                     <ul class="sub">
 						<li><a th:href="@{/users}">List User</a></li>
-						<li><a href="glyphicon.html">glyphicon</a></li>
-                        <li><a href="grids.html">Grids</a></li>
                     </ul>
                 </li>
                 <li>
                     <a href="fontawesome.html">
                         <i class="fa fa-bullhorn"></i>
-                        <span>Font awesome </span>
+                        <span>Categories </span>
                     </a>
                 </li>
                 <li class="sub-menu">
                     <a href="javascript:;">
                         <i class="fa fa-th"></i>
-                        <span>Data Tables</span>
+                        <span>Brands</span>
                     </a>
                     <ul class="sub">
                         <li><a href="basic_table.html">Basic Table</a></li>
@@ -40,7 +39,7 @@
                 <li class="sub-menu">
                     <a href="javascript:;">
                         <i class="fa fa-tasks"></i>
-                        <span>Form Components</span>
+                        <span>Products</span>
                     </a>
                     <ul class="sub">
                         <li><a href="form_component.html">Form Elements</a></li>
@@ -51,7 +50,7 @@
                 <li class="sub-menu">
                     <a href="javascript:;">
                         <i class="fa fa-envelope"></i>
-                        <span>Mail </span>
+                        <span>Questions</span>
                     </a>
                     <ul class="sub">
                         <li><a href="mail.html">Inbox</a></li>
@@ -61,7 +60,7 @@
                 <li class="sub-menu">
                     <a href="javascript:;">
                         <i class=" fa fa-bar-chart-o"></i>
-                        <span>Charts</span>
+                        <span>Reviews</span>
                     </a>
                     <ul class="sub">
                         <li><a href="chartjs.html">Chart js</a></li>
@@ -71,7 +70,7 @@
                 <li class="sub-menu">
                     <a href="javascript:;">
                         <i class=" fa fa-bar-chart-o"></i>
-                        <span>Maps</span>
+                        <span>Customers</span>
                     </a>
                     <ul class="sub">
                         <li><a href="google_map.html">Google Map</a></li>
@@ -81,7 +80,7 @@
                 <li class="sub-menu">
                     <a href="javascript:;">
                         <i class="fa fa-glass"></i>
-                        <span>Extra</span>
+                        <span>Shipping</span>
                     </a>
                     <ul class="sub">
                         <li><a href="gallery.html">Gallery</a></li>
@@ -90,12 +89,37 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="login.html">
-                        <i class="fa fa-user"></i>
-                        <span>Login Page</span>
+                    <a href="fontawesome.html">
+                        <i class="fa fa-bullhorn"></i>
+                        <span>Orders </span>
                     </a>
                 </li>
-            </ul>            </div>
+                <li>
+                    <a href="fontawesome.html">
+                        <i class="fa fa-bullhorn"></i>
+                        <span>Report </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="fontawesome.html">
+                        <i class="fa fa-bullhorn"></i>
+                        <span>Articles </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="fontawesome.html">
+                        <i class="fa fa-bullhorn"></i>
+                        <span>Menus </span>
+                    </a>
+                </li>
+                <li>
+                    <a th:href="@{/settings}" sec:authorize="hasAuthority('Admin')">
+                        <i class="fa fa-cog"></i>
+                        <span>Settings</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
         <!-- sidebar menu end-->
     </div>
 </aside>
