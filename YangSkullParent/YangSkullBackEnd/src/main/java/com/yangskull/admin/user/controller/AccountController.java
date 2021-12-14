@@ -1,7 +1,7 @@
-package com.yangskull.admin.user;
+package com.yangskull.admin.user.controller;
 
-import com.yangskull.admin.security.YangSkullDetailsService;
 import com.yangskull.admin.security.YangSkullUserDetails;
+import com.yangskull.admin.user.UserService;
 import com.yangskull.admin.utils.FileUploadUtil;
 import com.yangskull.common.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,7 +31,7 @@ public class AccountController {
         User user = userService.getByEmail(email);
         model.addAttribute("user",user);
         model.addAttribute("pageTitle", "Profile update");
-        return "account_form";
+        return "users/account_form";
     }
 
     @PostMapping("/account/update")

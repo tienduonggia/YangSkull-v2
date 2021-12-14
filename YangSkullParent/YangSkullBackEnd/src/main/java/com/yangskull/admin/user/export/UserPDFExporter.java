@@ -1,6 +1,5 @@
 package com.yangskull.admin.user.export;
 
-import com.yangskull.admin.user.AbstractExporter;
 import com.yangskull.common.entity.User;
 import com.lowagie.text.*;
 import com.lowagie.text.Font;

@@ -1,4 +1,4 @@
-package com.yangskull.admin.user;
+package com.yangskull.admin.user.controller;
 
 import java.io.File;
 import java.io.IOException;
@@ -6,6 +6,8 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
 
+import com.yangskull.admin.user.UserNotFoundException;
+import com.yangskull.admin.user.UserService;
 import com.yangskull.admin.user.export.UserExelExporter;
 import com.yangskull.admin.user.export.UserPDFExporter;
 import com.yangskull.admin.utils.FileUploadUtil;
@@ -81,7 +83,7 @@ public class UserController {
         model.addAttribute("listUsers", listUser);
         model.addAttribute("reverseSortDir", reverseSortDir);
         model.addAttribute("keyword", keyword);
-        return "ListUser";
+        return "users/ListUser";
     }
 
     @GetMapping("/new")
@@ -91,7 +93,7 @@ public class UserController {
         model.addAttribute("user", user);
         model.addAttribute("listRoles", listRoles);
         model.addAttribute("pageTitle", "Create New User");
-        return "User_Form";
+        return "users/User_Form";
     }
 
     //Đầu tiền mình sẽ get ID user sau đó tìm , nếu kh có id đó thì sẽ zô phần catch => lỗi exception mình đã code ở Service => trả về modal bên view
@@ -106,7 +108,7 @@ public class UserController {
             model.addAttribute("listRoles", listRoles);
             model.addAttribute("user", user);
             model.addAttribute("pageTitle", "Edit User");
-            return "User_Form";
+            return "users/User_Form";
         } catch (UserNotFoundException e) {
             redicAttributes.addFlashAttribute("error", e.getMessage());
             return "redirect:/users";

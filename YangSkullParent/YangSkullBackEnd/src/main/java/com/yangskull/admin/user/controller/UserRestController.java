@@ -1,5 +1,6 @@
-package com.yangskull.admin.user;
+package com.yangskull.admin.user.controller;
 
+import com.yangskull.admin.user.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.query.Param;
 import org.springframework.web.bind.annotation.PostMapping;
