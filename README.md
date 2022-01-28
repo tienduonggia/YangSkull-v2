@@ -32,7 +32,8 @@
 
 #### PERMISSONS
 
-![ScreenShot](./screenshots/permisson_1.png)
+<img src ="https://github.com/tienduonggia/YangSkull-v2/blob/main/screenshots/permisson_1.png" width="250" height="250">
+
 ![ScreenShot](./screenshots/permisson_2.png)
 
 
