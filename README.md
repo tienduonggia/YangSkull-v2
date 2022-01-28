@@ -31,55 +31,31 @@
 
 ## Overview 
 
-#### PERMISSONS
+### PERMISSONS
 
-<img src ="https://github.com/tienduonggia/YangSkull-v2/blob/main/screenshots/img_1.png" width="500" height="500">
+<img src ="https://github.com/tienduonggia/YangSkull-v2/blob/main/screenshots/permisson.png" width="700" height="500">
 
 
 
-#### Usecase
+### USECASE
+#### Front-end
 
-![img_2.png](img_2.png)
+<img src ="https://github.com/tienduonggia/YangSkull-v2/blob/main/screenshots/FE_usecase.png" >
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/7dc1f704-325a-4dd7-88b1-05d7a80e150b/Untitled.png)
+#### Back-end
+<img src ="https://github.com/tienduonggia/YangSkull-v2/blob/main/screenshots/BE_usecase.png" >
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/6d3c659a-0bca-429b-a0cf-cef7b0f88a7f/Untitled.png)
+### SYSTEM ARCHITECHTURE
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/143d915e-34e8-4747-be47-3c7e39aa286d/Untitled.png)
-
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/63e7c73c-60b5-4821-b2b3-85d0a47ef96d/Untitled.png)
-
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/74691157-5969-4cd7-adaf-840909ddbc7f/Untitled.png)
-
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/7cdf5c38-66fb-4970-b10e-077bd32b4cae/Untitled.png)
-
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/1cbe8d21-52dd-4253-8c30-28825e5149ad/Untitled.png)
-
----
-
-Over view user case
-
-— Front end
-
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/18ba181b-0851-40ed-a5a5-5da15cdfd9b7/Untitled.png)
-
-—BackEnd
-
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/52a77712-b619-4db6-becd-c8a217af70f3/Untitled.png)
-
----
-
-System Architechture
-
-- Local dev
+#### Local dev
 
 ![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/ca5814ce-ca57-4ce1-8950-68c83b97c5d2/Untitled.png)
 
-- Production
+#### Production
 
 ![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/afa91abf-16c0-4346-8b0e-f42a48f3aed7/Untitled.png)
 
-Authorization table matrix
+### AUTHORIZATION TABLE MATRIX 
 
 ![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/a7c88f36-ea16-491a-b54d-286034c80e2b/Untitled.png)
 
