@@ -6,7 +6,7 @@
 ![ScreenShot](./screenshots/logoDemo.png)
 </div>
 
-###Features
+### Features
 
 - dasdasd
 - dasdasdasd
@@ -28,9 +28,9 @@
 - [Accessibility](#accessibility)
 - [Copyright and License](#copyright-and-license)
 
-##Overview 
+## Overview 
 
-####PERMISSONS
+#### PERMISSONS
 
 ![ScreenShot](./screenshots/permisson_1.png)
 ![ScreenShot](./screenshots/permisson_2.png)
@@ -38,7 +38,7 @@
 
 ---
 
-####Usecase
+#### Usecase
 
 ![img_2.png](img_2.png)
 
