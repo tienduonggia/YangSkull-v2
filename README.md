@@ -1,11 +1,12 @@
-<html>
+
 <h1 align="center" style="margin-top: 0px;">WHISKY WEBSITE</h1>
 
 <div style="background:black" align="center">
 
 ![ScreenShot](./screenshots/logoDemo.png)
 </div>
-</html>
+
+
 ### Features
 
 - dasdasd
@@ -32,9 +33,9 @@
 
 #### PERMISSONS
 
-<img src ="https://github.com/tienduonggia/YangSkull-v2/blob/main/screenshots/permisson_1.png" width="250" height="250">
+<img src ="https://github.com/tienduonggia/YangSkull-v2/blob/main/screenshots/permisson_1.png" width="500" height="500"><img src ="https://github.com/tienduonggia/YangSkull-v2/blob/main/screenshots/permisson_2.png" width="500" height="300">
 
-![ScreenShot](./screenshots/permisson_2.png)
+
 
 
 ---
