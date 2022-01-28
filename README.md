@@ -40,23 +40,24 @@
 ### USECASE
 #### Front-end
 
-<img src ="https://github.com/tienduonggia/YangSkull-v2/blob/main/screenshots/FE_usecase.png" >
+<img src ="https://github.com/tienduonggia/YangSkull-v2/blob/main/screenshots/FE_usecase.png"  width="900" height="500">
 
 #### Back-end
-<img src ="https://github.com/tienduonggia/YangSkull-v2/blob/main/screenshots/BE_usecase.png" >
+<img src ="https://github.com/tienduonggia/YangSkull-v2/blob/main/screenshots/BE_usecase.png"  width="800" height="800">
 
 ### SYSTEM ARCHITECHTURE
 
 #### Local dev
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/ca5814ce-ca57-4ce1-8950-68c83b97c5d2/Untitled.png)
+<img src ="https://github.com/tienduonggia/YangSkull-v2/blob/main/screenshots/local_dev.png"  width="700" height="500">
 
 #### Production
-
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/afa91abf-16c0-4346-8b0e-f42a48f3aed7/Untitled.png)
+<img src ="https://github.com/tienduonggia/YangSkull-v2/blob/main/screenshots/product_dev.png"  width="700" height="500">
 
 ### AUTHORIZATION TABLE MATRIX 
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/a7c88f36-ea16-491a-b54d-286034c80e2b/Untitled.png)
+<img src ="https://github.com/tienduonggia/YangSkull-v2/blob/main/screenshots/img.png">
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/d992cc27-80bb-4ce0-a6bc-638519a79321/Untitled.png)
+
+<img src ="https://github.com/tienduonggia/YangSkull-v2/blob/main/screenshots/img_1.png"  >
+
