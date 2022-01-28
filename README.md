@@ -33,12 +33,9 @@
 
 #### PERMISSONS
 
-<img src ="https://github.com/tienduonggia/YangSkull-v2/blob/main/screenshots/permisson_1.png" width="500" height="500"><img src ="https://github.com/tienduonggia/YangSkull-v2/blob/main/screenshots/permisson_2.png" width="500" height="300">
+<img src ="https://github.com/tienduonggia/YangSkull-v2/blob/main/screenshots/img_1.png" width="500" height="500">
 
 
-
-
----
 
 #### Usecase
 
