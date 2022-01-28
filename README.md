@@ -29,7 +29,9 @@
 - [Copyright and License](#copyright-and-license)
 
 ##Overview 
+
 ####PERMISSONS
+
 ![ScreenShot](./screenshots/permisson_1.png)
 ![ScreenShot](./screenshots/permisson_2.png)
 
@@ -37,6 +39,7 @@
 ---
 
 ####Usecase
+
 ![img_2.png](img_2.png)
 
 ![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/7dc1f704-325a-4dd7-88b1-05d7a80e150b/Untitled.png)
