@@ -1,11 +1,11 @@
-
+<html>
 <h1 align="center" style="margin-top: 0px;">WHISKY WEBSITE</h1>
 
 <div style="background:black" align="center">
 
 ![ScreenShot](./screenshots/logoDemo.png)
 </div>
-
+</html>
 ### Features
 
 - dasdasd
