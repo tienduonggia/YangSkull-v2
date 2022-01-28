@@ -43,7 +43,7 @@
 <img src ="https://github.com/tienduonggia/YangSkull-v2/blob/main/screenshots/FE_usecase.png"  width="900" height="500">
 
 #### Back-end
-<img src ="https://github.com/tienduonggia/YangSkull-v2/blob/main/screenshots/BE_usecase.png"  width="800" height="800">
+<img src ="https://github.com/tienduonggia/YangSkull-v2/blob/main/screenshots/BE_usecase.png"  width="700" height="600">
 
 ### SYSTEM ARCHITECHTURE
 
