@@ -195,6 +195,7 @@
             params = {id: idUser, email: userEmail, _csrf: csrfValue};
 
             $.post(url, params, function(response) {
+                alert(response);
                 if (response == "OK") {
                     form.submit();
                 } else if (response == "Duplicated") {

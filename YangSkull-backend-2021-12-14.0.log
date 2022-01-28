@@ -1,0 +1,187 @@
+2021-12-14 22:48:19.465  INFO 848 --- [restartedMain] c.y.admin.YangSkullBackEndApplication    : Starting YangSkullBackEndApplication using Java 16.0.2 on Yang with PID 848 (F:\Java_Thay Long\Java_Web_STS4\YangSkullProject\YangSkullParent\YangSkullBackEnd\target\classes started by howl1 in F:\Java_Thay Long\Java_Web_STS4\YangSkullProject)
+2021-12-14 22:48:19.467  INFO 848 --- [restartedMain] c.y.admin.YangSkullBackEndApplication    : No active profile set, falling back to default profiles: default
+2021-12-14 22:48:19.743  INFO 848 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-12-14 22:48:19.744  INFO 848 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-12-14 22:48:20.916  INFO 848 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-12-14 22:48:21.038  INFO 848 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 109 ms. Found 2 JPA repository interfaces.
+2021-12-14 22:48:21.901  INFO 848 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-12-14 22:48:21.910  INFO 848 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-12-14 22:48:21.910  INFO 848 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.52]
+2021-12-14 22:48:22.009  INFO 848 --- [restartedMain] o.a.c.c.C.[.[.[/YangSkullAdmin]          : Initializing Spring embedded WebApplicationContext
+2021-12-14 22:48:22.010  INFO 848 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2265 ms
+2021-12-14 22:48:22.192  INFO 848 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-12-14 22:48:22.274  INFO 848 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.32.Final
+2021-12-14 22:48:22.444  INFO 848 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-12-14 22:48:22.577  INFO 848 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-12-14 22:48:23.080  INFO 848 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-12-14 22:48:23.100  INFO 848 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2021-12-14 22:48:24.512  INFO 848 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-12-14 22:48:24.521  INFO 848 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-12-14 22:48:24.571  WARN 848 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-12-14 22:48:25.172  INFO 848 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/images/**'] with []
+2021-12-14 22:48:25.172  INFO 848 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/js/**'] with []
+2021-12-14 22:48:25.172  INFO 848 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/fonts/**'] with []
+2021-12-14 22:48:25.172  INFO 848 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/css/**'] with []
+2021-12-14 22:48:25.172  INFO 848 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/webjars/**'] with []
+2021-12-14 22:48:25.214  INFO 848 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@12046083, org.springframework.security.web.context.SecurityContextPersistenceFilter@5fb9bc8b, org.springframework.security.web.header.HeaderWriterFilter@bc7535c, org.springframework.security.web.csrf.CsrfFilter@6027cc7b, org.springframework.security.web.authentication.logout.LogoutFilter@11713df1, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@4aea4c3a, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@49264506, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1b13d448, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@1da7ef51, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@1bfe0833, org.springframework.security.web.session.SessionManagementFilter@7951089, org.springframework.security.web.access.ExceptionTranslationFilter@7d0b96a2, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@65d76bac]
+2021-12-14 22:48:25.414  INFO 848 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2021-12-14 22:48:26.456  INFO 848 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-12-14 22:48:26.491  INFO 848 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path '/YangSkullAdmin'
+2021-12-14 22:48:26.501  INFO 848 --- [restartedMain] c.y.admin.YangSkullBackEndApplication    : Started YangSkullBackEndApplication in 7.611 seconds (JVM running for 9.106)
+2021-12-14 22:55:08.307  INFO 848 --- [http-nio-8080-exec-1] o.a.c.c.C.[.[.[/YangSkullAdmin]          : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-12-14 22:55:08.308  INFO 848 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-12-14 22:55:08.309  INFO 848 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2021-12-14 22:56:29.083  INFO 848 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-12-14 22:56:29.088  INFO 848 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2021-12-14 22:56:29.129  INFO 848 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2021-12-14 22:56:33.725  INFO 12620 --- [restartedMain] c.y.admin.YangSkullBackEndApplication    : Starting YangSkullBackEndApplication using Java 16.0.2 on Yang with PID 12620 (F:\Java_Thay Long\Java_Web_STS4\YangSkullProject\YangSkullParent\YangSkullBackEnd\target\classes started by howl1 in F:\Java_Thay Long\Java_Web_STS4\YangSkullProject)
+2021-12-14 22:56:33.729  INFO 12620 --- [restartedMain] c.y.admin.YangSkullBackEndApplication    : No active profile set, falling back to default profiles: default
+2021-12-14 22:56:34.006  INFO 12620 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-12-14 22:56:34.006  INFO 12620 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-12-14 22:56:35.204  INFO 12620 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-12-14 22:56:35.327  INFO 12620 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 113 ms. Found 2 JPA repository interfaces.
+2021-12-14 22:56:36.239  INFO 12620 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-12-14 22:56:36.249  INFO 12620 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-12-14 22:56:36.249  INFO 12620 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.52]
+2021-12-14 22:56:36.364  INFO 12620 --- [restartedMain] o.a.c.c.C.[.[.[/YangSkullAdmin]          : Initializing Spring embedded WebApplicationContext
+2021-12-14 22:56:36.364  INFO 12620 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2357 ms
+2021-12-14 22:56:36.420  WARN 12620 --- [restartedMain] o.a.c.c.C.[.[.[/YangSkullAdmin]          : Cannot deserialize session attribute [SPRING_SECURITY_CONTEXT] for session [0358F6B95091EC2295E22176BBDD7E95]
+2021-12-14 22:56:36.585  INFO 12620 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-12-14 22:56:36.662  INFO 12620 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.32.Final
+2021-12-14 22:56:36.846  INFO 12620 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-12-14 22:56:36.996  INFO 12620 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-12-14 22:56:37.887  INFO 12620 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-12-14 22:56:37.924  INFO 12620 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2021-12-14 22:56:39.398  INFO 12620 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-12-14 22:56:39.407  INFO 12620 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-12-14 22:56:39.455  WARN 12620 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-12-14 22:56:40.032  INFO 12620 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/images/**'] with []
+2021-12-14 22:56:40.033  INFO 12620 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/js/**'] with []
+2021-12-14 22:56:40.033  INFO 12620 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/fonts/**'] with []
+2021-12-14 22:56:40.033  INFO 12620 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/css/**'] with []
+2021-12-14 22:56:40.033  INFO 12620 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/webjars/**'] with []
+2021-12-14 22:56:40.061  INFO 12620 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@cb4c0a5, org.springframework.security.web.context.SecurityContextPersistenceFilter@795b774, org.springframework.security.web.header.HeaderWriterFilter@4c6ccfce, org.springframework.security.web.csrf.CsrfFilter@7acf7bd2, org.springframework.security.web.authentication.logout.LogoutFilter@76945553, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@5ac5b4e1, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4ea9714c, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@44e32b01, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@52250a72, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7ba10f6e, org.springframework.security.web.session.SessionManagementFilter@3eb96a23, org.springframework.security.web.access.ExceptionTranslationFilter@61092466, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@428524ff]
+2021-12-14 22:56:40.265  INFO 12620 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2021-12-14 22:56:41.126  INFO 12620 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-12-14 22:56:41.166  INFO 12620 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path '/YangSkullAdmin'
+2021-12-14 22:56:41.176  INFO 12620 --- [restartedMain] c.y.admin.YangSkullBackEndApplication    : Started YangSkullBackEndApplication in 8.087 seconds (JVM running for 10.031)
+2021-12-14 22:58:19.114  INFO 12620 --- [Thread-5] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-12-14 22:58:19.118  INFO 12620 --- [Thread-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2021-12-14 22:58:19.131  INFO 12620 --- [Thread-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2021-12-14 22:59:08.925  INFO 12620 --- [restartedMain] c.y.admin.YangSkullBackEndApplication    : Starting YangSkullBackEndApplication using Java 16.0.2 on Yang with PID 12620 (F:\Java_Thay Long\Java_Web_STS4\YangSkullProject\YangSkullParent\YangSkullBackEnd\target\classes started by howl1 in F:\Java_Thay Long\Java_Web_STS4\YangSkullProject)
+2021-12-14 22:59:08.925  INFO 12620 --- [restartedMain] c.y.admin.YangSkullBackEndApplication    : No active profile set, falling back to default profiles: default
+2021-12-14 22:59:09.164  INFO 12620 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-12-14 22:59:09.181  INFO 12620 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 16 ms. Found 2 JPA repository interfaces.
+2021-12-14 22:59:09.304  INFO 12620 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-12-14 22:59:09.305  INFO 12620 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-12-14 22:59:09.305  INFO 12620 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.52]
+2021-12-14 22:59:09.361  INFO 12620 --- [restartedMain] o.a.c.c.C.[.[.[/YangSkullAdmin]          : Initializing Spring embedded WebApplicationContext
+2021-12-14 22:59:09.361  INFO 12620 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 431 ms
+2021-12-14 22:59:09.442  INFO 12620 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-12-14 22:59:09.450  INFO 12620 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Starting...
+2021-12-14 22:59:09.475  INFO 12620 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Start completed.
+2021-12-14 22:59:09.476  INFO 12620 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2021-12-14 22:59:09.847  INFO 12620 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-12-14 22:59:09.848  INFO 12620 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-12-14 22:59:09.874  WARN 12620 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-12-14 22:59:10.010  INFO 12620 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/images/**'] with []
+2021-12-14 22:59:10.011  INFO 12620 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/js/**'] with []
+2021-12-14 22:59:10.011  INFO 12620 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/fonts/**'] with []
+2021-12-14 22:59:10.011  INFO 12620 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/css/**'] with []
+2021-12-14 22:59:10.011  INFO 12620 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/webjars/**'] with []
+2021-12-14 22:59:10.017  INFO 12620 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@50b1658e, org.springframework.security.web.context.SecurityContextPersistenceFilter@5703eb3d, org.springframework.security.web.header.HeaderWriterFilter@44bc6495, org.springframework.security.web.csrf.CsrfFilter@3b48b830, org.springframework.security.web.authentication.logout.LogoutFilter@6c6b17de, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@59b58e34, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@841815d, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2f7ed40c, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@71f23c18, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@38d904b7, org.springframework.security.web.session.SessionManagementFilter@29744f1b, org.springframework.security.web.access.ExceptionTranslationFilter@4bb295fd, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@3edadb54]
+2021-12-14 22:59:10.084  INFO 12620 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2021-12-14 22:59:10.415  INFO 12620 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-12-14 22:59:10.432  INFO 12620 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path '/YangSkullAdmin'
+2021-12-14 22:59:10.438  INFO 12620 --- [restartedMain] c.y.admin.YangSkullBackEndApplication    : Started YangSkullBackEndApplication in 1.559 seconds (JVM running for 159.293)
+2021-12-14 22:59:10.441  INFO 12620 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2021-12-14 23:09:22.135  INFO 12620 --- [Thread-11] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-12-14 23:09:22.137  INFO 12620 --- [Thread-11] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown initiated...
+2021-12-14 23:09:22.154  INFO 12620 --- [Thread-11] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown completed.
+2021-12-14 23:09:22.306  INFO 12620 --- [restartedMain] c.y.admin.YangSkullBackEndApplication    : Starting YangSkullBackEndApplication using Java 16.0.2 on Yang with PID 12620 (F:\Java_Thay Long\Java_Web_STS4\YangSkullProject\YangSkullParent\YangSkullBackEnd\target\classes started by howl1 in F:\Java_Thay Long\Java_Web_STS4\YangSkullProject)
+2021-12-14 23:09:22.307  INFO 12620 --- [restartedMain] c.y.admin.YangSkullBackEndApplication    : No active profile set, falling back to default profiles: default
+2021-12-14 23:09:22.741  INFO 12620 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-12-14 23:09:22.783  INFO 12620 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 40 ms. Found 2 JPA repository interfaces.
+2021-12-14 23:09:22.932  INFO 12620 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-12-14 23:09:22.933  INFO 12620 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-12-14 23:09:22.933  INFO 12620 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.52]
+2021-12-14 23:09:22.969  INFO 12620 --- [restartedMain] o.a.c.c.C.[.[.[/YangSkullAdmin]          : Initializing Spring embedded WebApplicationContext
+2021-12-14 23:09:22.969  INFO 12620 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 660 ms
+2021-12-14 23:09:23.014  INFO 12620 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-12-14 23:09:23.023  INFO 12620 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Starting...
+2021-12-14 23:09:23.155  INFO 12620 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Start completed.
+2021-12-14 23:09:23.156  INFO 12620 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2021-12-14 23:09:23.675  INFO 12620 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-12-14 23:09:23.676  INFO 12620 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-12-14 23:09:23.699  WARN 12620 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-12-14 23:09:23.789  INFO 12620 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/images/**'] with []
+2021-12-14 23:09:23.790  INFO 12620 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/js/**'] with []
+2021-12-14 23:09:23.790  INFO 12620 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/fonts/**'] with []
+2021-12-14 23:09:23.790  INFO 12620 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/css/**'] with []
+2021-12-14 23:09:23.790  INFO 12620 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/webjars/**'] with []
+2021-12-14 23:09:23.796  INFO 12620 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@23c78252, org.springframework.security.web.context.SecurityContextPersistenceFilter@20e7c3fe, org.springframework.security.web.header.HeaderWriterFilter@376393b2, org.springframework.security.web.csrf.CsrfFilter@4ee65c42, org.springframework.security.web.authentication.logout.LogoutFilter@1319ffcf, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@60b93239, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@696498d, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2d43a4ee, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@3d6aadd, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@21ac5adb, org.springframework.security.web.session.SessionManagementFilter@5c9f9063, org.springframework.security.web.access.ExceptionTranslationFilter@719af9a6, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@3a4715c4]
+2021-12-14 23:09:23.835  INFO 12620 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2021-12-14 23:09:24.129  INFO 12620 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-12-14 23:09:24.138  INFO 12620 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path '/YangSkullAdmin'
+2021-12-14 23:09:24.142  INFO 12620 --- [restartedMain] c.y.admin.YangSkullBackEndApplication    : Started YangSkullBackEndApplication in 1.874 seconds (JVM running for 772.997)
+2021-12-14 23:09:24.144  INFO 12620 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2021-12-14 23:10:32.391  INFO 12620 --- [Thread-15] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-12-14 23:10:32.393  INFO 12620 --- [Thread-15] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Shutdown initiated...
+2021-12-14 23:10:32.403  INFO 12620 --- [Thread-15] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Shutdown completed.
+2021-12-14 23:10:32.505  INFO 12620 --- [restartedMain] c.y.admin.YangSkullBackEndApplication    : Starting YangSkullBackEndApplication using Java 16.0.2 on Yang with PID 12620 (F:\Java_Thay Long\Java_Web_STS4\YangSkullProject\YangSkullParent\YangSkullBackEnd\target\classes started by howl1 in F:\Java_Thay Long\Java_Web_STS4\YangSkullProject)
+2021-12-14 23:10:32.505  INFO 12620 --- [restartedMain] c.y.admin.YangSkullBackEndApplication    : No active profile set, falling back to default profiles: default
+2021-12-14 23:10:32.860  INFO 12620 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-12-14 23:10:32.881  INFO 12620 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 20 ms. Found 2 JPA repository interfaces.
+2021-12-14 23:10:33.098  INFO 12620 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-12-14 23:10:33.100  INFO 12620 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-12-14 23:10:33.100  INFO 12620 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.52]
+2021-12-14 23:10:33.203  INFO 12620 --- [restartedMain] o.a.c.c.C.[.[.[/YangSkullAdmin]          : Initializing Spring embedded WebApplicationContext
+2021-12-14 23:10:33.203  INFO 12620 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 696 ms
+2021-12-14 23:10:33.370  INFO 12620 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-12-14 23:10:33.387  INFO 12620 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Starting...
+2021-12-14 23:10:33.544  INFO 12620 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Start completed.
+2021-12-14 23:10:33.546  INFO 12620 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2021-12-14 23:10:33.976  INFO 12620 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-12-14 23:10:33.976  INFO 12620 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-12-14 23:10:34.028  WARN 12620 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-12-14 23:10:34.143  INFO 12620 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/images/**'] with []
+2021-12-14 23:10:34.143  INFO 12620 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/js/**'] with []
+2021-12-14 23:10:34.144  INFO 12620 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/fonts/**'] with []
+2021-12-14 23:10:34.144  INFO 12620 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/css/**'] with []
+2021-12-14 23:10:34.144  INFO 12620 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/webjars/**'] with []
+2021-12-14 23:10:34.158  INFO 12620 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5bd5e1da, org.springframework.security.web.context.SecurityContextPersistenceFilter@6378ab8, org.springframework.security.web.header.HeaderWriterFilter@265c941c, org.springframework.security.web.csrf.CsrfFilter@15adc67e, org.springframework.security.web.authentication.logout.LogoutFilter@6ddc640f, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@437f470b, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@796e9315, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3bd01450, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@1537f0ed, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@52c4d7df, org.springframework.security.web.session.SessionManagementFilter@7dd23d4a, org.springframework.security.web.access.ExceptionTranslationFilter@3bd88fc4, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@1a32654a]
+2021-12-14 23:10:34.205  INFO 12620 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2021-12-14 23:10:34.914  INFO 12620 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-12-14 23:10:34.927  INFO 12620 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path '/YangSkullAdmin'
+2021-12-14 23:10:34.931  INFO 12620 --- [restartedMain] c.y.admin.YangSkullBackEndApplication    : Started YangSkullBackEndApplication in 2.464 seconds (JVM running for 843.786)
+2021-12-14 23:10:34.933  INFO 12620 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2021-12-14 23:10:44.657  INFO 12620 --- [Thread-19] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-12-14 23:10:44.658  INFO 12620 --- [Thread-19] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Shutdown initiated...
+2021-12-14 23:10:44.662  INFO 12620 --- [Thread-19] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Shutdown completed.
+2021-12-14 23:11:00.832  INFO 12620 --- [restartedMain] c.y.admin.YangSkullBackEndApplication    : Starting YangSkullBackEndApplication using Java 16.0.2 on Yang with PID 12620 (F:\Java_Thay Long\Java_Web_STS4\YangSkullProject\YangSkullParent\YangSkullBackEnd\target\classes started by howl1 in F:\Java_Thay Long\Java_Web_STS4\YangSkullProject)
+2021-12-14 23:11:00.832  INFO 12620 --- [restartedMain] c.y.admin.YangSkullBackEndApplication    : No active profile set, falling back to default profiles: default
+2021-12-14 23:11:01.083  INFO 12620 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-12-14 23:11:01.097  INFO 12620 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 13 ms. Found 2 JPA repository interfaces.
+2021-12-14 23:11:01.222  INFO 12620 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-12-14 23:11:01.223  INFO 12620 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-12-14 23:11:01.223  INFO 12620 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.52]
+2021-12-14 23:11:01.250  INFO 12620 --- [restartedMain] o.a.c.c.C.[.[.[/YangSkullAdmin]          : Initializing Spring embedded WebApplicationContext
+2021-12-14 23:11:01.251  INFO 12620 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 416 ms
+2021-12-14 23:11:01.304  INFO 12620 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-12-14 23:11:01.317  INFO 12620 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-6 - Starting...
+2021-12-14 23:11:01.337  INFO 12620 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-6 - Start completed.
+2021-12-14 23:11:01.338  INFO 12620 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2021-12-14 23:11:01.539  INFO 12620 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-12-14 23:11:01.539  INFO 12620 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-12-14 23:11:01.565  WARN 12620 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-12-14 23:11:01.649  INFO 12620 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/images/**'] with []
+2021-12-14 23:11:01.649  INFO 12620 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/js/**'] with []
+2021-12-14 23:11:01.649  INFO 12620 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/fonts/**'] with []
+2021-12-14 23:11:01.649  INFO 12620 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/css/**'] with []
+2021-12-14 23:11:01.649  INFO 12620 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/webjars/**'] with []
+2021-12-14 23:11:01.657  INFO 12620 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@20b991fa, org.springframework.security.web.context.SecurityContextPersistenceFilter@2f0077f2, org.springframework.security.web.header.HeaderWriterFilter@5ebb9812, org.springframework.security.web.csrf.CsrfFilter@40d8bc66, org.springframework.security.web.authentication.logout.LogoutFilter@6525c2b4, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@2e44b9b2, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1707d920, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@157ea8da, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@6ccc6cd1, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2b9c1e57, org.springframework.security.web.session.SessionManagementFilter@2abec54f, org.springframework.security.web.access.ExceptionTranslationFilter@4d1eb436, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@19c24d8f]
+2021-12-14 23:11:01.762  INFO 12620 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2021-12-14 23:11:02.087  INFO 12620 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-12-14 23:11:02.104  INFO 12620 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path '/YangSkullAdmin'
+2021-12-14 23:11:02.108  INFO 12620 --- [restartedMain] c.y.admin.YangSkullBackEndApplication    : Started YangSkullBackEndApplication in 1.327 seconds (JVM running for 870.963)
+2021-12-14 23:11:02.110  INFO 12620 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged

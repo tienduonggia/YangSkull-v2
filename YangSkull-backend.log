@@ -1,0 +1,33 @@
+2021-12-15 23:16:08.166  INFO 12620 --- [Thread-23] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-12-15 23:16:08.299  INFO 12620 --- [Thread-23] com.zaxxer.hikari.HikariDataSource       : HikariPool-6 - Shutdown initiated...
+2021-12-15 23:16:08.320  INFO 12620 --- [Thread-23] com.zaxxer.hikari.HikariDataSource       : HikariPool-6 - Shutdown completed.
+2021-12-15 23:16:30.689  INFO 12620 --- [restartedMain] c.y.admin.YangSkullBackEndApplication    : Starting YangSkullBackEndApplication using Java 16.0.2 on Yang with PID 12620 (F:\Java_Thay Long\Java_Web_STS4\YangSkullProject\YangSkullParent\YangSkullBackEnd\target\classes started by howl1 in F:\Java_Thay Long\Java_Web_STS4\YangSkullProject)
+2021-12-15 23:16:30.690  INFO 12620 --- [restartedMain] c.y.admin.YangSkullBackEndApplication    : No active profile set, falling back to default profiles: default
+2021-12-15 23:16:32.264  INFO 12620 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-12-15 23:16:32.360  INFO 12620 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 96 ms. Found 2 JPA repository interfaces.
+2021-12-15 23:16:32.476  INFO 12620 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-12-15 23:16:32.476  INFO 12620 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-12-15 23:16:32.476  INFO 12620 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.52]
+2021-12-15 23:16:32.516  INFO 12620 --- [restartedMain] o.a.c.c.C.[.[.[/YangSkullAdmin]          : Initializing Spring embedded WebApplicationContext
+2021-12-15 23:16:32.516  INFO 12620 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1822 ms
+2021-12-15 23:16:32.554  INFO 12620 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-12-15 23:16:32.559  INFO 12620 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-7 - Starting...
+2021-12-15 23:16:32.999  INFO 12620 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-7 - Start completed.
+2021-12-15 23:16:33.000  INFO 12620 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2021-12-15 23:16:34.021  INFO 12620 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-12-15 23:16:34.021  INFO 12620 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-12-15 23:16:34.054  WARN 12620 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-12-15 23:16:34.226  INFO 12620 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/images/**'] with []
+2021-12-15 23:16:34.226  INFO 12620 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/js/**'] with []
+2021-12-15 23:16:34.226  INFO 12620 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/fonts/**'] with []
+2021-12-15 23:16:34.226  INFO 12620 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/css/**'] with []
+2021-12-15 23:16:34.226  INFO 12620 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/webjars/**'] with []
+2021-12-15 23:16:34.232  INFO 12620 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@6ab803bb, org.springframework.security.web.context.SecurityContextPersistenceFilter@67a44f86, org.springframework.security.web.header.HeaderWriterFilter@43811ca, org.springframework.security.web.csrf.CsrfFilter@306f502a, org.springframework.security.web.authentication.logout.LogoutFilter@3e18110d, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@7c59a150, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@17ff32d9, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@530dd7ad, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@13a4893d, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@33203436, org.springframework.security.web.session.SessionManagementFilter@2d80b41c, org.springframework.security.web.access.ExceptionTranslationFilter@32385271, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@3e5ce3b1]
+2021-12-15 23:16:34.278  INFO 12620 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2021-12-15 23:16:34.871  INFO 12620 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-12-15 23:16:34.893  INFO 12620 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path '/YangSkullAdmin'
+2021-12-15 23:16:34.912  INFO 12620 --- [restartedMain] c.y.admin.YangSkullBackEndApplication    : Started YangSkullBackEndApplication in 4.358 seconds (JVM running for 1208.389)
+2021-12-15 23:16:34.916  INFO 12620 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2021-12-14 23:20:29.139  INFO 12620 --- [Thread-29] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-12-14 23:20:29.139  INFO 12620 --- [Thread-29] com.zaxxer.hikari.HikariDataSource       : HikariPool-7 - Shutdown initiated...
+2021-12-14 23:20:29.342  INFO 12620 --- [Thread-29] com.zaxxer.hikari.HikariDataSource       : HikariPool-7 - Shutdown completed.
