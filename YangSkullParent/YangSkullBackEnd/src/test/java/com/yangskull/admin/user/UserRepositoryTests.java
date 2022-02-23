@@ -20,6 +20,7 @@ import java.util.List;
 
 //để kh hiện câu SQL khi chạy test
 @DataJpaTest(showSql = false)
+//mặc định nó sẽ sử dụng database memeory nhưng mình cần test trên real database
 @AutoConfigureTestDatabase(replace = Replace.NONE)
 @Rollback(false)
 public class UserRepositoryTests {
@@ -94,7 +95,7 @@ public class UserRepositoryTests {
 	@Test
 	public void testDeleteUser()
 	{
-		int userID = 9;
+		int userID = 2;
 		repo.deleteById(userID);
 	}
 	

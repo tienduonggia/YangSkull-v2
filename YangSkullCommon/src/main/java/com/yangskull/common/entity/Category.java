@@ -1,25 +1,28 @@
 package com.yangskull.common.entity;
 
+import lombok.Builder;
+
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-@Table(name="categories")
+@Table(name = "categories")
 public class Category {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(length = 128, nullable = false, unique= true)
+    @Column(length = 128, nullable = false, unique = true)
     private String name;
 
-    @Column(length = 64, nullable = false, unique= true)
+    @Column(length = 64, nullable = false, unique = true)
     private String alias;
 
     @Column(length = 128, nullable = false)
     private String image;
-    private String enabled;
+
+    private boolean enabled;
 
     @OneToOne
     @JoinColumn(name = "parent_id")
@@ -27,6 +30,28 @@ public class Category {
 
     @OneToMany(mappedBy = "parent")
     private Set<Category> children = new HashSet<>();
+
+    public Category() {
+
+    }
+
+    public Category(Integer id) {
+        this.id = id;
+    }
+
+    //constructor tạo root category
+    public Category(String name) {
+        this.name = name;
+        this.alias = name;
+        this.image = "default.png";
+    }
+
+    //constructor tạo sub category
+    public Category(String name, Category rootCategory) {
+        this(name);
+        this.alias = name;
+        this.parent = rootCategory;
+    }
 
     public Integer getId() {
         return id;
@@ -60,11 +85,11 @@ public class Category {
         this.image = image;
     }
 
-    public String getEnabled() {
+    public boolean isEnabled() {
         return enabled;
     }
 
-    public void setEnabled(String enabled) {
+    public void setEnabled(boolean enabled) {
         this.enabled = enabled;
     }
 
@@ -82,5 +107,11 @@ public class Category {
 
     public void setChildren(Set<Category> children) {
         this.children = children;
+    }
+
+    @Override
+    public String toString()
+    {
+        return "Category[id: "+id + " name: " +name +"]";
     }
 }
