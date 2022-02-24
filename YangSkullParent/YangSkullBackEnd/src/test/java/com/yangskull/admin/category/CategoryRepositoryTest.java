@@ -77,6 +77,12 @@ public class CategoryRepositoryTest {
         }
     }
 
+    //Sử dụng đệ quy để gọi chính nó
+    //in ra gia phả của Category
+    //Example: Sprint
+    //         -- Whisky
+    //         -- Rum
+    //         ---- Another...
     public void testPrintChildCategory(Category parent, int subLevel) {
         int newSubLevel = subLevel + 1;
         Set<Category> setCategorySet = parent.getChildren();

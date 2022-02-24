@@ -20,11 +20,14 @@
 						<li><a th:href="@{/users}">List User</a></li>
                     </ul>
                 </li>
-                <li>
-                    <a href="fontawesome.html">
+                <li class="sub-menu" sec:authorize="hasAnyAuthority('Admin','Editor')">
+                    <a href="javascript:;">
                         <i class="fa fa-bullhorn"></i>
-                        <span>Categories </span>
+                        <span>Categories</span>
                     </a>
+                    <ul class="sub">
+                        <li><a th:href="@{/categories}">List Category</a></li>
+                    </ul>
                 </li>
                 <li class="sub-menu">
                     <a href="javascript:;">

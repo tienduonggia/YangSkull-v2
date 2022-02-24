@@ -11,7 +11,7 @@ public class PasswordEncoderTests {
 		{
 			//Test BCrypt from Spring security
 			BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-			String pw = "GiaTien";
+			String pw = "123";
 			String encodePw = passwordEncoder.encode(pw);
 			System.out.println(encodePw);
 			
