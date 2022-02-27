@@ -22,10 +22,9 @@ public class FileUploadUtil {
         //E:user-photo/
         Path uploadPath = Paths.get(uploadDir);
 
-        //KIỂM TRA đường dẫn đó tồn tại chưa
+        //KIỂM TRA đường dẫn đó tồn tại chưa => chưa thì tạo
         if (!Files.exists(uploadPath)) {
             Files.createDirectories(uploadPath);
-
         }
 
         try (InputStream inputStream = multipartFile.getInputStream()) {

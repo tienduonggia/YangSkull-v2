@@ -136,7 +136,9 @@ public class UserController {
     }
 
     @PostMapping("/save")
-    public String saveUser(User user, RedirectAttributes redicAttributes, @RequestParam("image") MultipartFile multipartFile) throws IOException {
+    public String saveUser(User user,
+                           RedirectAttributes redicAttributes,
+                           @RequestParam("image") MultipartFile multipartFile) throws IOException {
         System.out.println(user);
         System.out.println(multipartFile.getOriginalFilename());
         if (!multipartFile.isEmpty()) {

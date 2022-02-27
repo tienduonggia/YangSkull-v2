@@ -80,9 +80,9 @@
 
                         <td>[[${category.id}]]</td>
                         <td>
-                            <!--                            <img  th:src=""-->
-                            <!--                                  width="150px"-->
-                            <!--                                  height="150px"/>-->
+                            <img th:src="@{${category.getImagesPath}}"
+                                 width="150px"
+                                 height="150px"/>
                         </td>
                         <td><span class="text-ellipsis">[[${category.name}]]</span></td>
                         <td><span class="text-ellipsis">[[${category.alias}]]</span></td>

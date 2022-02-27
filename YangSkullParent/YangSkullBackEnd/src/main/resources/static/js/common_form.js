@@ -30,3 +30,18 @@ function showImageThumbnail(fileInput){
 
     reader.readAsDataURL(file);
 }
+
+//show dialog
+function showModalDialog(title, message) {
+    $("#modalTitle").text(title);
+    $("#modalBody").text(message);
+    $("#modalDialog").modal();
+}
+
+function showWaringDialog(message){
+    showModalDialog("Warning", message)
+}
+
+function showErrorDialog(message){
+    showModalDialog("Error", message)
+}

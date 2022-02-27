@@ -1,0 +1,168 @@
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.w3.org/1999/xhtml"
+      layout:decorate="~{fragments/MainLayout}">
+<head>
+    <meta charset="UTF-8"/>
+    <title>[[${pageTitle}]]</title>
+</head>
+<body>
+<div layout:fragment="content">
+    <div class="form-w3layouts">
+        <div class="row">
+            <div class="col-lg-12">
+                <section class="panel">
+                    <header class="panel-heading"> Manage Category | [[${pageTitle}]]</header>
+                    <div class="panel-body">
+                        <div class="position-center ">
+                            <!--Ở đây là onsubmit như filter > khi form này đc thực thi sẽ check email > phần emilUnique ok sẽ gián típ gọi submit -->
+                            <form class="cmxform form-horizontal" novalidate="novalidate"
+                                  method="post" th:object="${category}" th:action="@{/categories/save}"
+                                  onsubmit="return checkUnique(this);"
+                                  enctype="multipart/form-data">
+                                <input type="hidden" th:field="*{id}"/>
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label col-lg-3">Name</label>
+                                    <div class="col-lg-6">
+                                        <div class="input-group m-bot15" style="margin-bottom: 7px;">
+												<span class="input-group-addon btn-white"> <i
+                                                        class="fa fa-envelope"></i></span> <input type="email"
+                                                                                                  th:field="*{name}"
+                                                                                                  required minlength="8"
+                                                                                                  maxlength="128"
+                                                                                                  class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label col-lg-3">Alias</label>
+                                    <div class="col-lg-6">
+                                        <div class="input-group m-bot15" style="margin-bottom: 7px;">
+												<span class="input-group-addon btn-white"><i
+                                                        class="fa fa-italic"></i></span> <input type="text"
+                                                                                                th:field="*{alias}"
+                                                                                                required minlength="8"
+                                                                                                maxlength="64"
+                                                                                                class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label col-lg-3">Parent Category</label>
+                                    <div class="col-lg-6">
+                                        <select class="form-control m-bot15" th:field="*{parent}">
+                                            <option value="0">[No Parent]</option>
+                                            <th:block th:each="category : ${listCategory}">
+                                                <option
+                                                        th:value="${category.id}">[[${category.name}]]
+                                                </option>
+                                                >
+                                            </th:block>
+
+
+                                        </select>
+
+                                    </div>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label col-lg-3">Enabled</label>
+                                    <div class="col-lg-6">
+                                        <div class="input-group m-bot15" style="margin-bottom: 7px;">
+                                            <div class="checkbox">
+                                                <label> <input type="checkbox"
+                                                               th:field="*{enabled}"></label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label col-lg-3">Image</label>
+                                    <input type="hidden" th:field="*{image}"/>
+                                    <div class="col-lg-6">
+                                        <div class="input-group m-bot15" style="margin-bottom: 7px;">
+                                            <div class="checkbox">
+                                                <div class="checkbox">
+                                                    <input type="file" id="fileImage" name="fileImage"
+                                                           required
+                                                           accept="image/png, image/jpeg"/>
+
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <img id="thumbnail" alt="Image preview"
+                                             width="150px"
+                                             height="150px"
+                                             th:src="@{${category.getImagesPath()}}"/>
+                                    </div>
+
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="text-center">
+                                        <input type="submit" value="Save" class="btn btn-primary m-3"/>
+                                        <input type="button" value="Cancel" class="btn btn-secondary"
+                                               id="buttonCancel"/>
+                                    </div>
+                                </div>
+                            </form>
+
+                            <!-- Đây là chỗ hiển thị modal log khi trùng alias hoặc name , vì có nhiều nơi tái su73 dụng code này nên dùng fragment -->
+                            <div th:replace="modal_fragments :: modal_dialog"/>
+
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <!-- scrip đầu là button cancel
+        script thứ 2 : là dùng để gọi đến RestController check unique Email
+                         nhưng thay vì trả về alert => mình sẽ dùng modal của
+                         boostrap cho đẹp
+     -->
+    <script type="text/javascript">
+        moduleURL = "[[@{/categories}]]";
+
+
+        function checkUnique(form) {
+            url = "[[@{/categories/check_unique}]]";
+            categoryID = $("#id").val();
+            categoryName = $("#name").val();
+            categoryAlias = $("#alias").val();
+            csrfValue = $("input[name='_csrf']").val();
+            params = {id: categoryID, name: categoryName, alias: categoryAlias, _csrf: csrfValue}
+
+            $.post(url, params, function (reponse) {
+                if(reponse == "OK"){
+                    form.submit();
+                }else if(reponse == "DuplicateName"){
+                    showWaringDialog("Duplicated name")
+                }else if(reponse == "DuplicateAlias"){
+                    showWaringDialog("Duplicated alias")
+                }else{
+                    showErrorDialog("Server error !!!")
+                }
+            }).fail(function () {
+                showErrorDialog("Can't connect server")
+            });
+            return false
+        }
+
+    </script>
+    <script th:src="@{/js/common_form.js}"></script>
+</div>
+
+
+</body>
+
+
+</html>

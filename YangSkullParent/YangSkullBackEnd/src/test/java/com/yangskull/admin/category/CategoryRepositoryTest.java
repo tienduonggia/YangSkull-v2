@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.data.domain.Sort;
 import org.springframework.test.annotation.Rollback;
 import org.apache.commons.lang3.StringUtils;
 
@@ -84,16 +85,38 @@ public class CategoryRepositoryTest {
     //         -- Rum
     //         ---- Another...
     public void testPrintChildCategory(Category parent, int subLevel) {
+        StringBuilder sb = new StringBuilder("--");
         int newSubLevel = subLevel + 1;
         Set<Category> setCategorySet = parent.getChildren();
         for(Category subCategory : setCategorySet){
             for(int i = 0 ; i < newSubLevel; i++)
             {
-                System.out.print("--");
+
+                System.out.print(sb);
             }
+
             System.out.println(subCategory.getName());
             testPrintChildCategory(subCategory,newSubLevel);
         }
+    }
+
+    @Test
+    public void testListRootCateries()
+    {
+        List<Category> list = repo.findRootCategories(Sort.by("name").ascending());
+        list.forEach(category -> System.out.println(category.getName()));
+    }
+
+    @Test
+    public void testFindByName(){
+        Category category = repo.findByName("Whisky");
+        System.out.println(category);
+    }
+
+    @Test
+    public void testFindByAlias(){
+        Category category = repo.findByAlias("brandy");
+        System.out.println(category);
     }
 
 
