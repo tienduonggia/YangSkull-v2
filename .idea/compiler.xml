@@ -36,7 +36,7 @@
       <module name="YangSkullBackEnd" options="-parameters" />
       <module name="YangSkullCommon" options="-parameters" />
       <module name="YangSkullFrontEnd" options="-parameters" />
-      <module name="YangSkullParent" options="-parameters" />
+      <module name="YangSkullParent" options="" />
     </option>
   </component>
 </project>

@@ -67,6 +67,7 @@ public class Category {
         copyCate.setImage(category.getImage());
         copyCate.setAlias(category.alias);
         copyCate.setEnabled(category.isEnabled());
+        copyCate.setHasChildren(category.getChildren().size() > 0);
         return copyCate;
     }
 
@@ -159,4 +160,17 @@ public class Category {
         }
         return "/category-images/" + this.id + "/" + this.image;
     }
+
+    public boolean isHasChildren(){
+        return hasChildren;
+    }
+
+    public void setHasChildren(boolean hasChildren){
+        this.hasChildren = hasChildren;
+    }
+
+    @Transient
+    private boolean hasChildren;
+
+
 }

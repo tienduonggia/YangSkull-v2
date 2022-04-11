@@ -45,3 +45,4 @@ function showWaringDialog(message){
 function showErrorDialog(message){
     showModalDialog("Error", message)
 }
+

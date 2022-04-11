@@ -30,9 +30,25 @@
    th:href="@{'/users/page/' + ${pageNum} + '?sortField='+ ${sortField} +'&sortDir=' + ${sortDir} + ${keyword != null ? '&keyword=' + keyword : ''}}"
 >
     <i th:if="${className != null}"
-        th:class="${className}"></i>
+       th:class="${className}"></i>
     [[${label}]]
 </a>
+
+<td th:fragment="category_actions" th:remove="tag">
+    <a th:href="@{'/categories/edit/' + ${category.id}}"
+       title="Edit this user" class="active" ui-toggle-class=""> <i
+            class="fa  fa-edit text-success text-active"></i>
+
+    </a>
+    <th:block th:if="${category.hasChildren == false}">
+    <a th:href="@{'/categories/delete/' + ${category.id}}"
+            title="Delete this user" class="active link-delete"
+            ui-toggle-class=""
+            th:entityID="${category.id}">
+    <i class="fa fa-times text-danger text"></i>
+    </a>
+    </th:block>
+</td>
 
 
 </body>

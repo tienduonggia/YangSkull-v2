@@ -47,7 +47,8 @@ public class UserController {
     }
 
     @GetMapping("/page/{pageNumber}")
-    public String listByPage(@PathVariable("pageNumber") int pageNumber, Model model,
+    public String listByPage(@PathVariable("pageNumber") int pageNumber,
+                             Model model,
                              @Param("sortField") String sortField ,
                              @Param("sortDir") String sortDir,
                             @Param("keyword") String keyword) {

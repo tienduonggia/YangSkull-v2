@@ -2,8 +2,12 @@ package com.yangskull.admin.category;
 
 import com.yangskull.admin.user.UserNotFoundException;
 import com.yangskull.common.entity.Category;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.AutoConfigureOrder;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
@@ -24,10 +28,45 @@ public class CategoryService {
     @Autowired
     CategoryRepository categoryRepository;
 
-    public List<Category> listAll() {
-        List<Category> rootCategories = categoryRepository.findRootCategories(Sort.by("name").ascending());
+    private static final int ROOT_CATEGORIES_PER_PAGE = 1;
+
+    /*
+    * This function use for listAll Root categories have paging
+    * */
+    public List<Category> listByPage(CategoryPageInfo categoryPageInfo, int pageNum, String sortDir) {
+        Sort sort = Sort.by("name");
+        if (sortDir.equals("asc")) {
+            sort = sort.ascending();
+        } else if (sortDir.equals("desc")) {
+            sort = sort.descending();
+        }
+
+        Pageable pageable = PageRequest.of(pageNum - 1, ROOT_CATEGORIES_PER_PAGE);
+        Page<Category> pageCategories = categoryRepository.findRootCategories(pageable);
+        List<Category> rootCategories = pageCategories.getContent();
+
+        categoryPageInfo.setTotalPages(pageCategories.getTotalPages());
+        categoryPageInfo.setTotalElements(pageCategories.getTotalElements());
+
         return listHierarchicalCategories(rootCategories);
     }
+
+
+
+    /*
+    * This function use for listAll Root categories, no paging
+    * */
+//    public List<Category> listAll(String sortDir) {
+//        Sort sort = Sort.by("name");
+//
+//        if (sortDir.equals("asc")) {
+//            sort = sort.ascending();
+//        } else if (sortDir.equals("desc")) {
+//            sort = sort.descending();
+//        }
+//        List<Category> rootCategories = categoryRepository.findRootCategories(sort);
+//        return listHierarchicalCategories(rootCategories);
+//    }
 
     private List<Category> listHierarchicalCategories(List<Category> rootCategories) {
         List<Category> listHierarchicalCategories = new ArrayList<>();
@@ -141,29 +180,30 @@ public class CategoryService {
     public String checkUnique(Integer id, String name, String alias) {
         boolean isCreateNew = (id == null || id == 0);
         Category categoryByName = categoryRepository.findByName(name);
-        if(isCreateNew){
-            if(!Objects.isNull(categoryByName)){
+        if (isCreateNew) {
+            if (!Objects.isNull(categoryByName)) {
                 return "DuplicateName";
-            }else{
+            } else {
                 Category categoryByAlias = categoryRepository.findByAlias(alias);
-                if(!Objects.isNull(categoryByAlias)){
+                if (!Objects.isNull(categoryByAlias)) {
                     return "DuplicateAlias";
                 }
             }
-        }else{
+        } else {
             //nếu mà dưới mode Edit/Update => mi2nhs ẽ check coi id có giống nhau kh nếu kh giống nghĩ là khác nhau => duplicate
-            if(categoryByName !=null && categoryByName.getId() != id){
+            if (categoryByName != null && categoryByName.getId() != id) {
                 return "DuplicateName";
             }
             Category categoryByAlias = categoryRepository.findByAlias(alias);
-            if(!Objects.isNull(categoryByAlias) && categoryByAlias.getId() != id ){
+            if (!Objects.isNull(categoryByAlias) && categoryByAlias.getId() != id) {
                 return "DuplicateAlias";
             }
         }
         return "OK";
     }
 
-    private SortedSet<Category> sortSubCategories(Set<Category> chidlren){
+    //SSet dữ liệu kh đc sắp xếp => mún sắp xếp phải dùng treeset như dưới
+    private SortedSet<Category> sortSubCategories(Set<Category> chidlren) {
         SortedSet<Category> sortedChildren = new TreeSet<>(new Comparator<Category>() {
             @Override
             public int compare(Category o1, Category o2) {
@@ -172,6 +212,19 @@ public class CategoryService {
         });
         sortedChildren.addAll(chidlren);
         return sortedChildren;
+    }
+
+    public void updateEnabledCategory(Integer id, boolean status) {
+        categoryRepository.updateEnableCategory(id, status);
+    }
+
+    public void delete(Integer id) throws CategoryNotFoundException {
+        Long countById = categoryRepository.countById(id);
+        if (countById == null || countById == 0) {
+            throw new CategoryNotFoundException("Could not find any category with ID " + id);
+        }
+        categoryRepository.deleteById(id);
+
     }
 
 }

@@ -8,6 +8,7 @@ import com.yangskull.common.entity.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
@@ -32,11 +33,32 @@ public class CategoryController {
     CategoryService categoryService;
 
     @GetMapping
-    public String listAll(Model model) {
-        List<Category> categoryList = categoryService.listAll();
+    public String listFirstPage(@Param("sortDir") String sortDir,
+                          Model model) {
+        return listByPage(1, model,"asc");
+    }
 
+    @GetMapping("/page/{pageNum}")
+    public String listByPage(@PathVariable("pageNum") int pageNumber,
+                             Model model,
+                             @Param("sortDir") String sortDir
+                             ) {
+        if (org.apache.commons.lang3.StringUtils.isBlank(sortDir)) {
+            sortDir = "asc";
+        }
+
+        CategoryPageInfo categoryPageInfo = new CategoryPageInfo();
+        List<Category> categoryList = categoryService.listByPage(categoryPageInfo, pageNumber, sortDir);
+        String reverseSortDir = sortDir.equals("asc") ? "desc" : "asc";
+
+
+        model.addAttribute("totalElement",categoryPageInfo.getTotalElements());
+        model.addAttribute("totalPage",categoryPageInfo.getTotalPages());
+        model.addAttribute("currentPage",pageNumber);
         model.addAttribute("listCategory", categoryList);
+        model.addAttribute("reverseSortDir", reverseSortDir);
         return "categories/ListCategory";
+
     }
 
     @GetMapping("/new")
@@ -93,5 +115,33 @@ public class CategoryController {
 
         return "redirect:/categories";
     }
+
+    @GetMapping("/{id}/enabled/{status}")
+    public String updateEnableStatusCategory(@PathVariable("id") Integer id,
+                                             @PathVariable("status") boolean status,
+                                             RedirectAttributes redicAttributes) {
+        categoryService.updateEnabledCategory(id, status);
+        String enable = status ? "enable" : "disable";
+        String message = "The catgeory ID " + id + " has been " + enable;
+        redicAttributes.addFlashAttribute("message", message);
+        return "redirect:/categories";
+    }
+
+    @GetMapping("/delete/{id}")
+    public String deleteCategory(@PathVariable(name = "id") Integer id,
+                                 RedirectAttributes redirectAttributes) throws CategoryNotFoundException {
+
+        try {
+            categoryService.delete(id);
+
+            String categoryDir = "../category-images/" + id;
+            FileUploadUtil.removeDir(categoryDir);
+        } catch (CategoryNotFoundException ex) {
+            redirectAttributes.addFlashAttribute("message", ex.getMessage());
+        }
+        redirectAttributes.addFlashAttribute("message", "The category ID " + id + " has been deleted successfully");
+        return"redirect:/categories";
+    }
+
 
 }
