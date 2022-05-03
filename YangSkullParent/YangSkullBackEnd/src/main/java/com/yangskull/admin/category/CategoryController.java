@@ -1,6 +1,8 @@
 package com.yangskull.admin.category;
 
+import com.yangskull.admin.category.export.CategoryCsvExporter;
 import com.yangskull.admin.user.UserNotFoundException;
+import com.yangskull.admin.user.UserService;
 import com.yangskull.admin.utils.FileUploadUtil;
 import com.yangskull.common.entity.Category;
 import com.yangskull.common.entity.Role;
@@ -20,6 +22,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
@@ -35,26 +38,41 @@ public class CategoryController {
     @GetMapping
     public String listFirstPage(@Param("sortDir") String sortDir,
                           Model model) {
-        return listByPage(1, model,"asc");
+        return listByPage(1,model ,sortDir, null);
     }
 
     @GetMapping("/page/{pageNum}")
     public String listByPage(@PathVariable("pageNum") int pageNumber,
                              Model model,
-                             @Param("sortDir") String sortDir
+                             @Param("sortDir") String sortDir,
+                             @Param("keyword") String keyword
                              ) {
         if (org.apache.commons.lang3.StringUtils.isBlank(sortDir)) {
             sortDir = "asc";
         }
 
         CategoryPageInfo categoryPageInfo = new CategoryPageInfo();
-        List<Category> categoryList = categoryService.listByPage(categoryPageInfo, pageNumber, sortDir);
+        List<Category> categoryList = categoryService.listByPage(categoryPageInfo, pageNumber, sortDir, keyword);
+
+        long startCount = (long) (pageNumber - 1) * CategoryService.ROOT_CATEGORIES_PER_PAGE + 1;
+        long endCount = startCount + CategoryService.ROOT_CATEGORIES_PER_PAGE - 1;
+        if (endCount > categoryPageInfo.getTotalElements()) {
+            endCount = categoryPageInfo.getTotalElements();
+        }
+
+
         String reverseSortDir = sortDir.equals("asc") ? "desc" : "asc";
 
 
         model.addAttribute("totalElement",categoryPageInfo.getTotalElements());
         model.addAttribute("totalPage",categoryPageInfo.getTotalPages());
         model.addAttribute("currentPage",pageNumber);
+        model.addAttribute("sortField","name");
+        model.addAttribute("sortDir",sortDir);
+        model.addAttribute("keyword",keyword);
+        model.addAttribute("startCount", startCount);
+        model.addAttribute("endCount", endCount);
+
         model.addAttribute("listCategory", categoryList);
         model.addAttribute("reverseSortDir", reverseSortDir);
         return "categories/ListCategory";
@@ -141,6 +159,13 @@ public class CategoryController {
         }
         redirectAttributes.addFlashAttribute("message", "The category ID " + id + " has been deleted successfully");
         return"redirect:/categories";
+    }
+
+    @GetMapping("/categories/export/csv")
+    public void exportToCSV(HttpServletResponse response) throws IOException {
+        List<Category> listCategories = categoryService.listCategoriesUsedInForm();
+        CategoryCsvExporter exporter = new CategoryCsvExporter();
+        exporter.export(listCategories, response);
     }
 
 

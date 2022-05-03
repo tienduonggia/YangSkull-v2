@@ -26,8 +26,8 @@
 </th>
 
 
-<a th:fragment="page_link(pageNum, label, className)"
-   th:href="@{'/users/page/' + ${pageNum} + '?sortField='+ ${sortField} +'&sortDir=' + ${sortDir} + ${keyword != null ? '&keyword=' + keyword : ''}}"
+<a th:fragment="page_link(moduleURL ,pageNum, label, className)"
+   th:href="@{${moduleURL} +'/page/' + ${pageNum} + '?sortField='+ ${sortField} +'&sortDir=' + ${sortDir} + ${keyword != null ? '&keyword=' + keyword : ''}}"
 >
     <i th:if="${className != null}"
        th:class="${className}"></i>
@@ -50,6 +50,61 @@
     </th:block>
 </td>
 
+
+<!-- Pagination Fragment-->
+<div th:fragment="pagination(moduleURL, entityName)" th:remove="tag">
+
+        <div class="col-sm-5 text-center">
+            <small class="text-muted inline m-t-sm m-b-sm" th:if="${totalItems > 0}">Showing
+                [[${startCount}]] to [[${endCount}]] of [[${totalItems}]] [[${entityName}]]</small>
+
+            <small class="text-muted inline m-t-sm m-b-sm" th:unless="${totalItems > 0}">No [[${entityName}]] to show</small>
+        </div>
+
+
+    <div class="col-sm-7 text-right text-center-xs" th:if="${totalPage > 0} ">
+        <ul class="pagination pagination-sm m-t-none m-b-none">
+            <li th:class="${currentPage > 1 ? '' : 'page-item disabled'}">
+                <a th:replace="fragments :: page_link(${moduleURL} ,1, 'First','')"/>
+                <!--  <a th:href="@{'/users/page/1?sortField=' + ${sortField} +'&sortDir=' + ${sortDir}}">First</a>-->
+            </li>
+            <li th:class="${currentPage > 1 ? '' : 'page-item disabled'}">
+                <!--<a th:href="@{'/users/page/' + ${currentPage - 1}+ '?sortField='+ ${sortField} +'&sortDir=' + ${sortDir}}"><i class="fa fa-chevron-left"></i></a>-->
+                <a th:replace="fragments :: page_link(${moduleURL}, ${currentPage - 1}, '','fa fa-chevron-left')"/>
+            </li>
+
+            <li th:each="i : ${#numbers.sequence(1,totalPage)}">
+                <a th:style="${currentPage != i ? 'background: white' : 'background:pink'}"
+                   th:href="@{ ${moduleURL}+ '/page/' + ${i} + '?sortField='+ ${sortField} +'&sortDir=' + ${sortDir}}">[[${i}]]</a>
+            </li>
+
+            <li th:class="${currentPage > 1 ? 'page-item disabled' : ''}">
+
+                <a th:replace="fragments :: page_link(${moduleURL}, ${currentPage + 1}, '','fa fa-chevron-right')"/>
+            </li>
+            <li th:class="${currentPage > 1 ? 'page-item disabled' : ''}">
+                <a th:replace="fragments :: page_link(${moduleURL}, ${totalPage}, 'Last','')"/>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<!-- Search, sort fragment-->
+<div th:fragment="search_form(moduleURL)" >
+    <!--before use fragment-->
+    <!--<form th:action="@{/users/page/1}" class="input-group">-->
+    <form th:action="@{${moduleURL}}" class="input-group">
+        <input type="hidden"  th:value="${sortField}" name="sortField"/>
+        <input type="hidden"  th:value="${sortDir}" name="sortDir"/>
+        <input type="search" class="input-sm form-control" placeholder="Search" name="keyword" required/>
+
+        <span class="input-group-btn">
+                                <button class="btn btn-sm btn-default" type="submit">Go!</button>
+
+    </form>
+    <button class="btn btn-sm btn-default" onclick="clearFilter()">Clear</button>
+    </span>
+</div>
 
 </body>
 </html>

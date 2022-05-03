@@ -1,5 +1,6 @@
 package com.yangskull.admin.user.export;
 
+import com.yangskull.admin.AbstractExporter;
 import com.yangskull.common.entity.User;
 import com.lowagie.text.*;
 import com.lowagie.text.Font;
@@ -15,7 +16,7 @@ import java.util.List;
 public class UserPDFExporter extends AbstractExporter {
 
     public void export(List<User> listUser, HttpServletResponse response) throws IOException {
-        super.setResponseHeader(response,"application/pdf",".pdf");
+        super.setResponseHeader(response,"application/pdf",".pdf", "user_");
 
         Document document = new Document(PageSize.A4);
         PdfWriter.getInstance(document,response.getOutputStream());

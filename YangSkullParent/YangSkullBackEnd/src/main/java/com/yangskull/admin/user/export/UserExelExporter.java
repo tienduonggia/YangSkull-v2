@@ -1,5 +1,6 @@
 package com.yangskull.admin.user.export;
 
+import com.yangskull.admin.AbstractExporter;
 import com.yangskull.common.entity.User;
 import org.apache.poi.ss.usermodel.CellStyle;
 import org.apache.poi.xssf.usermodel.*;
@@ -54,7 +55,7 @@ public class UserExelExporter extends AbstractExporter {
     }
 
     public void export(List<User> listUsers, HttpServletResponse response) throws IOException {
-        super.setResponseHeader(response, "application/octet-stream", ".xlsx");
+        super.setResponseHeader(response, "application/octet-stream", ".xlsx", "user_");
         writeHeaderLine();
 
         writeDataLines(listUsers);
